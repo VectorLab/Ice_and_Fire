@@ -1,5 +1,7 @@
 package com.github.alexthe666.iceandfire;
 
+import com.github.alexthe666.iceandfire.entity.DimensionGriefing;
+
 import net.minecraftforge.common.config.Configuration;
 
 public class IceAndFireConfig {
@@ -32,7 +34,6 @@ public class IceAndFireConfig {
     public int glacierSpawnChance = 4;
     public int oreToStoneRatioForDragonCaves = 45;
     public int dragonEggTime = 7200;
-    public int dragonGriefing = 0;
     public boolean tamedDragonGriefing = true;
     public int dragonFlapNoiseDistance = 4;
     public int dragonFluteDistance = 8;
@@ -180,7 +181,6 @@ public class IceAndFireConfig {
         this.spawnStructuresOnSuperflat = config.getBoolean("Generate All Structures on Superflat", "all", true, "Whether to generate structures or mobs on superflat worlds");
         this.dragonBlockBreakingDropChance = config.getFloat("Dragon Block Breaking Drop Chance", "all", 0.1F, 0.0F, 1.0F, "The percentage chance for a block to drop as an item when a dragon breaks it.");
         this.dragonEggTime = config.getInt("Dragon Egg Hatch Time", "all", 7200, 1, Integer.MAX_VALUE, "How long it takes(in ticks) for a dragon egg to hatch");
-        this.dragonGriefing = config.getInt("Dragon Griefing", "all", 0, 0, 2, "Dragon griefing - 2 is no griefing, 1 is breaking weak blocks, 0 is default");
         this.tamedDragonGriefing = config.getBoolean("Tamed Dragon Griefing", "all", true, "True if tamed dragons can follow the griefing rules.");
         this.dragonFlapNoiseDistance = config.getInt("Dragon Flap Noise Distance", "all", 4, 0, 10000, "Dragon Flap Noise Distance - Larger number, further away you can hear it");
         this.dragonFluteDistance = config.getInt("Dragon Flute Distance", "all", 4, 0, 10000, "Dragon Flute Distance - how many chunks away is the dragon flute effective?");
@@ -317,5 +317,11 @@ public class IceAndFireConfig {
         this.generateHydraChance = config.getInt("Hydra Caves Gen Chance", "all", 200, 1, 10000, "One out of this number chance per chunk to generate a hydra cave.");
 
         this.chunkLoadSummonCrystal = config.getBoolean("Chunk Load Summon Crystal", "all", true, "True if the summon crystal can load chunks to find dragons.");
+        
+        {
+        	int dragonGriefing = config.getInt("Dragon Griefing", "all", 0, 0, 2, "Dragon griefing - 2 is no griefing, 1 is breaking weak blocks, 0 is default");
+        	String[] dragonGriefingList = config.getStringList("Dragon Griefing List", "all", new String[]{"0:2", "1:2", "-1:2"}, "Blocks that will not drop as items when broken by a dragon. Ex. 0:0 or -1:2");
+        	DimensionGriefing.init(dragonGriefing,dragonGriefingList);
+        }
     }
 }

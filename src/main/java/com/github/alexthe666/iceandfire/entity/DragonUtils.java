@@ -19,6 +19,7 @@ import net.minecraft.init.Blocks;
 import net.minecraft.util.EntitySelectors;
 import net.minecraft.util.math.*;
 import net.minecraft.world.EnumDifficulty;
+import net.minecraft.world.World;
 
 import javax.annotation.Nullable;
 import java.util.List;
@@ -297,12 +298,12 @@ public class DragonUtils {
     }
 
 
-    public static boolean canGrief(boolean weak) {
+    public static boolean canGrief(World w,boolean weak) {
         if (weak) {
-            return IceAndFire.CONFIG.dragonGriefing == 0;
+            return DimensionGriefing.get(w) == 0;
 
         } else {
-            return IceAndFire.CONFIG.dragonGriefing < 2;
+            return DimensionGriefing.get(w) < 2;
         }
     }
 

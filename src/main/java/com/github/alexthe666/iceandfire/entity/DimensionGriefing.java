@@ -1,0 +1,46 @@
+package com.github.alexthe666.iceandfire.entity;
+
+import java.util.HashMap;
+
+import com.github.alexthe666.iceandfire.IceAndFire;
+
+import net.minecraft.world.World;
+
+public class DimensionGriefing {
+	public static HashMap<Integer,Integer> griefing_dim=new HashMap<>();
+	public static int griefing_default=0;
+	
+	public static int get(World wi) {
+		Integer v1=griefing_dim.get(wi.provider.getDimension());
+		return null==v1?griefing_default:v1;
+	}
+	
+	private static void logError(String p1) {
+		IceAndFire.logger.error("config <dragon Griefing List> values '"+p1+"' invalid, skipping");
+	}
+
+	public static void init(int dragonGriefing, String[] dragonGriefingList) {
+		griefing_default=dragonGriefing;
+		for(String v1:dragonGriefingList) {
+			String[] v2=v1.split(":");
+			if(2!=v2.length) {
+				logError(v1);
+				continue;
+			}
+			int v3,v4;
+			try {
+				v3=Integer.parseInt(v2[0]);
+				v4=Integer.parseInt(v2[1]);
+			}catch(NumberFormatException e) {
+				IceAndFire.logger.catching(e);
+				logError(v1);
+				continue;
+			}
+			griefing_dim.put(v3, v4);
+		}
+		
+	}
+	
+	
+
+}

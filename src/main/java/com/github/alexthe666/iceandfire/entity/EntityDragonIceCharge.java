@@ -120,7 +120,7 @@ public class EntityDragonIceCharge extends EntityFireball implements IDragonProj
                         if (shootingEntity != null && (movingObject.entityHit == shootingEntity || (movingObject.entityHit instanceof EntityTameable && ((EntityDragonBase) shootingEntity).isOwner(((EntityDragonBase) shootingEntity).getOwner())))) {
                             return;
                         }
-                        if (shootingEntity != null && IceAndFire.CONFIG.dragonGriefing != 2) {
+                        if (shootingEntity != null && DimensionGriefing.get(this.world) != 2) {
                             IafDragonDestructionManager.destroyAreaIceCharge(world, new BlockPos(posX, posY, posZ), ((EntityDragonBase) shootingEntity));
                         }
                         if (dragon != null) {

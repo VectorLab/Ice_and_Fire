@@ -77,7 +77,6 @@ public class EntityDragonFireCharge extends EntityFireball implements IDragonPro
 
             if (this.isInWater()) {
                 for (int i = 0; i < 4; ++i) {
-                    float f1 = 0.25F;
                     this.world.spawnParticle(EnumParticleTypes.WATER_BUBBLE, this.posX - this.motionX * 0.25D, this.posY - this.motionY * 0.25D, this.posZ - this.motionZ * 0.25D, this.motionX, this.motionY, this.motionZ);
                 }
 
@@ -99,8 +98,6 @@ public class EntityDragonFireCharge extends EntityFireball implements IDragonPro
 
     @Override
     protected void onImpact(RayTraceResult movingObject) {
-        boolean flag = this.world.getGameRules().getBoolean("mobGriefing");
-
         if (!this.world.isRemote) {
             if (movingObject.entityHit != null && movingObject.entityHit instanceof IDragonProjectile) {
                 return;
@@ -118,7 +115,7 @@ public class EntityDragonFireCharge extends EntityFireball implements IDragonPro
                     if (shootingEntity != null && (movingObject.entityHit == shootingEntity || (movingObject.entityHit instanceof EntityTameable && ((EntityDragonBase) shootingEntity).isOwner(((EntityDragonBase) shootingEntity).getOwner())))) {
                         return;
                     }
-                    if (shootingEntity != null && IceAndFire.CONFIG.dragonGriefing != 2) {
+                    if (shootingEntity != null && DimensionGriefing.get(this.world) != 2) {
                         IafDragonDestructionManager.destroyAreaFireCharge(world, new BlockPos(posX, posY, posZ), dragon);
                     }
                     if (dragon != null) {
