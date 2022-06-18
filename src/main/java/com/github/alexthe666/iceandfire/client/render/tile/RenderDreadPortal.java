@@ -1,18 +1,22 @@
 package com.github.alexthe666.iceandfire.client.render.tile;
 
+import java.nio.FloatBuffer;
+import java.util.Random;
+
 import com.github.alexthe666.iceandfire.entity.tile.TileEntityDreadPortal;
+
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.renderer.*;
+import net.minecraft.client.renderer.BufferBuilder;
+import net.minecraft.client.renderer.GLAllocation;
+import net.minecraft.client.renderer.GlStateManager;
+import net.minecraft.client.renderer.OpenGlHelper;
+import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.EnumSkyBlock;
-import org.lwjgl.Sys;
-
-import java.nio.FloatBuffer;
-import java.util.Random;
 
 public class RenderDreadPortal extends TileEntitySpecialRenderer<TileEntityDreadPortal> {
     private static final ResourceLocation END_SKY_TEXTURE = new ResourceLocation("iceandfire:textures/environment/dread_portal_background.png");

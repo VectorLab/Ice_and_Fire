@@ -9,12 +9,7 @@ import net.minecraft.world.World;
 public class DimensionGriefing {
 	public static HashMap<Integer,Integer> griefing_dim=new HashMap<>();
 	public static int griefing_default=0;
-	
-	public static int get(World wi) {
-		Integer v1=griefing_dim.get(wi.provider.getDimension());
-		return null==v1?griefing_default:v1;
-	}
-	
+
 	private static void logError(String p1) {
 		IceAndFire.logger.error("config <dragon Griefing List> values '"+p1+"' invalid, skipping");
 	}
@@ -36,11 +31,23 @@ public class DimensionGriefing {
 				logError(v1);
 				continue;
 			}
+			if(v4==dragonGriefing) {
+				continue;
+			}
 			griefing_dim.put(v3, v4);
 		}
 		
 	}
 	
-	
+	public static int get(World wi) {
+		Integer v1=griefing_dim.get(wi.provider.getDimension());
+		return null==v1?griefing_default:v1;
+	}
+
+	public static boolean canGrief(World w, boolean weak) {
+    	Integer v1=griefing_dim.get(w.provider.getDimension());
+    	int v2=((null==v1)?griefing_default:v1);
+    	return (weak?(v2==0):(v2<2));
+	}
 
 }

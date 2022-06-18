@@ -6,7 +6,7 @@ import net.minecraftforge.common.config.Configuration;
 
 public class IceAndFireConfig {
 
-    public boolean customMainMenu = true;
+    public boolean customMainMenu = false;
     public boolean useVanillaFont = false;
     public boolean logCascadingWorldGen = false;
     public boolean generateSilverOre = true;
@@ -153,7 +153,7 @@ public class IceAndFireConfig {
     public boolean chunkLoadSummonCrystal = true;
 
     public void init(Configuration config) {
-        this.customMainMenu = config.getBoolean("Custom main menu", "all", true, "Whether to display the dragon on the main menu or not");
+        this.customMainMenu = config.getBoolean("Custom main menu", "all", false, "Whether to display the dragon on the main menu or not");
         this.useVanillaFont = config.getBoolean("Use Vanilla Font", "all", false, "Whether to use the vanilla font in the bestiary or not");
         this.generateSilverOre = config.getBoolean("Generate Silver Ore", "all", true, "Whether to generate silver ore or not");
         this.logCascadingWorldGen = config.getBoolean("Log Cascading World Gen", "all", false, "Whether to log cascading world gen lag. We hope to fix all cascading lag in the future, but the server console spam is over the top.");

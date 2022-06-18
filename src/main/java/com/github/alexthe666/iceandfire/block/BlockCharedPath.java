@@ -82,13 +82,13 @@ public class BlockCharedPath extends BlockGrassPath {
             worldIn.setBlockState(pos, isFire ? IafBlockRegistry.charedDirt.getDefaultState() : IafBlockRegistry.frozenDirt.getDefaultState());
         }
     }
-
+/*
     private void updateBlockState(World worldIn, BlockPos pos) {
         if (worldIn.getBlockState(pos.up()).getMaterial().isSolid()) {
             worldIn.setBlockState(pos, isFire ? IafBlockRegistry.charedDirt.getDefaultState() : IafBlockRegistry.frozenDirt.getDefaultState());
         }
     }
-
+*/
     public IBlockState getStateFromMeta(int meta) {
         return this.getDefaultState().withProperty(REVERTS, meta == 1);
     }

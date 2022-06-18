@@ -35,7 +35,7 @@ public class BlockDreadStoneFace extends BlockHorizontal implements IDreadBlock,
 
     @Override
     public float getBlockHardness(IBlockState blockState, World worldIn, BlockPos pos) {
-        return blockState.getValue(PLAYER_PLACED) ? super.getBlockHardness(blockState, worldIn, pos) : -1;
+        return blockState.getValue(PLAYER_PLACED) ? super.blockHardness : -1;
     }
 
     public IBlockState withRotation(IBlockState state, Rotation rot) {

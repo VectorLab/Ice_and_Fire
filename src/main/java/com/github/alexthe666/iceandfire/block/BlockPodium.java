@@ -1,6 +1,7 @@
 package com.github.alexthe666.iceandfire.block;
 
 import com.github.alexthe666.iceandfire.IceAndFire;
+import com.github.alexthe666.iceandfire.block.BlockPodium.EnumType;
 import com.github.alexthe666.iceandfire.entity.tile.TileEntityPodium;
 import com.github.alexthe666.iceandfire.item.ICustomRendered;
 import net.minecraft.block.Block;
@@ -29,7 +30,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 import java.util.Random;
 
 public class BlockPodium extends BlockContainer implements ICustomRendered {
-    public static final PropertyEnum VARIANT = PropertyEnum.create("variant", BlockPodium.EnumType.class);
+    public static final PropertyEnum<EnumType> VARIANT = PropertyEnum.create("variant", BlockPodium.EnumType.class);
     public Item itemBlock;
 
     public BlockPodium() {

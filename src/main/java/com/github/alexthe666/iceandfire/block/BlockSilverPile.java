@@ -41,7 +41,6 @@ public class BlockSilverPile extends Block {
     }
 
     @Override
-    @SuppressWarnings("deprecation")
     public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess source, BlockPos pos) {
         return SNOW_AABB[state.getValue(LAYERS)];
     }

@@ -1,29 +1,27 @@
 package com.github.alexthe666.iceandfire.client.render.entity.layer;
 
-import com.github.alexthe666.iceandfire.client.render.entity.RenderDragonBase;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+
 import com.github.alexthe666.iceandfire.client.texture.ArrayLayeredTexture;
 import com.github.alexthe666.iceandfire.entity.DragonType;
 import com.github.alexthe666.iceandfire.entity.EntityDragonBase;
 import com.github.alexthe666.iceandfire.enums.EnumDragonTextures;
 import com.google.common.collect.Maps;
+
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.renderer.GlStateManager;
-import net.minecraft.client.renderer.OpenGlHelper;
 import net.minecraft.client.renderer.entity.RenderLiving;
 import net.minecraft.client.renderer.entity.layers.LayerRenderer;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.util.ResourceLocation;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-
 public class LayerDragonArmor implements LayerRenderer<EntityDragonBase> {
     private static EntityEquipmentSlot[] ARMOR_SLOTS = {EntityEquipmentSlot.HEAD, EntityEquipmentSlot.CHEST, EntityEquipmentSlot.LEGS, EntityEquipmentSlot.FEET};
-    private final RenderLiving render;
+    private final RenderLiving<EntityDragonBase> render;
     private static final Map<String, ResourceLocation> LAYERED_ARMOR_CACHE = Maps.newHashMap();
 
-    public LayerDragonArmor(RenderLiving renderIn, boolean isFireDragon) {
+    public LayerDragonArmor(RenderLiving<EntityDragonBase> renderIn, boolean isFireDragon) {
         this.render = renderIn;
     }
 

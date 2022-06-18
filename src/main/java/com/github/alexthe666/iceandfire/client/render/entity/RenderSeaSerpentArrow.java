@@ -15,7 +15,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 import org.lwjgl.opengl.GL11;
 
 @SideOnly(Side.CLIENT)
-public class RenderSeaSerpentArrow extends Render {
+public class RenderSeaSerpentArrow extends Render<EntitySeaSerpentArrow> {
     private static final ResourceLocation arrowTextures = new ResourceLocation("iceandfire:textures/models/misc/sea_serpent_arrow.png");
 
     public RenderSeaSerpentArrow(RenderManager render) {
@@ -87,7 +87,7 @@ public class RenderSeaSerpentArrow extends Render {
         return arrowTextures;
     }
 
-    @Override
+/*    @Override
     protected ResourceLocation getEntityTexture(Entity entity) {
         return this.getEntityTexture((EntitySeaSerpentArrow) entity);
     }
@@ -95,5 +95,5 @@ public class RenderSeaSerpentArrow extends Render {
     @Override
     public void doRender(Entity entity, double x, double y, double z, float f, float partialTicks) {
         this.doRender((EntitySeaSerpentArrow) entity, x, y, z, f, partialTicks);
-    }
+    }*/
 }

@@ -8,11 +8,11 @@ import net.minecraft.client.renderer.entity.layers.LayerRenderer;
 import net.minecraft.entity.EntityLivingBase;
 import org.lwjgl.opengl.GL11;
 
-public class LayerTrollStone implements LayerRenderer {
+public class LayerTrollStone implements LayerRenderer<EntityLivingBase> {
 
-    private RenderLivingBase renderer;
+    private RenderLivingBase<EntityLivingBase> renderer;
 
-    public LayerTrollStone(RenderLivingBase renderer) {
+    public LayerTrollStone(RenderLivingBase<EntityLivingBase> renderer) {
         this.renderer = renderer;
     }
 

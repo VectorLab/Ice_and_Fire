@@ -42,7 +42,7 @@ public class RenderDragonSkull extends Render<EntityDragonSkull> {
         GlStateManager.disableCull();
         GlStateManager.translate((float) x, (float) y, (float) z);
         GlStateManager.rotate(entity.getYaw(), 0, -1, 0);
-        float f = 0.0625F;
+//        float f = 0.0625F;
         GlStateManager.enableRescaleNormal();
         GlStateManager.scale(1.0F, -1.0F, 1.0F);
         GlStateManager.enableAlpha();

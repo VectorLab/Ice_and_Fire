@@ -21,7 +21,6 @@ public class FireDragonForgeCatagory implements IRecipeCategory<FireDragonForgeR
         return IceAndFireJEIPlugin.FIRE_DRAGON_FORGE_ID;
     }
 
-    @SuppressWarnings("deprecation")
     @Override
     public String getTitle() {
         return I18n.translateToLocal("iceandfire.fire_dragon_forge");

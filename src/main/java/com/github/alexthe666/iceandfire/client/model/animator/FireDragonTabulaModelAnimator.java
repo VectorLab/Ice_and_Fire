@@ -48,7 +48,7 @@ public class FireDragonTabulaModelAnimator extends IceAndFireTabulaModelAnimator
         boolean walking = !entity.isHovering() && !entity.isFlying() && entity.hoverProgress <= 0 && entity.flyProgress <= 0;
         int currentIndex = walking ? (entity.walkCycle / 10) : (entity.flightCycle / 10);
         int prevIndex = currentIndex - 1;
-        float dive = (10 - entity.diveProgress) * 0.1F;
+//        float dive = (10 - entity.diveProgress) * 0.1F;
         if (prevIndex < 0) {
             prevIndex = walking ? 3 : 5;
         }

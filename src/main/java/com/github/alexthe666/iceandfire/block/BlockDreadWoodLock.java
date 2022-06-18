@@ -34,7 +34,7 @@ public class BlockDreadWoodLock extends Block implements IDragonProof, IDreadBlo
 
     @Override
     public float getBlockHardness(IBlockState blockState, World worldIn, BlockPos pos) {
-        return blockState.getValue(PLAYER_PLACED) ? super.getBlockHardness(blockState, worldIn, pos) : -1;
+        return blockState.getValue(PLAYER_PLACED) ? super.blockHardness : -1;
     }
 
     public boolean onBlockActivated(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {

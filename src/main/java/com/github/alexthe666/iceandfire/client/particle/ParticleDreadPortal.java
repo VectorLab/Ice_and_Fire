@@ -1,5 +1,7 @@
 package com.github.alexthe666.iceandfire.client.particle;
 
+import org.lwjgl.opengl.GL11;
+
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.particle.ParticleFlame;
 import net.minecraft.client.renderer.BufferBuilder;
@@ -8,11 +10,9 @@ import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
-import org.lwjgl.opengl.GL11;
 
 public class ParticleDreadPortal extends ParticleFlame {
     private static final ResourceLocation SNOWFLAKE = new ResourceLocation("iceandfire:textures/particles/snowflake_0.png");
@@ -62,10 +62,10 @@ public class ParticleDreadPortal extends ParticleFlame {
             Minecraft.getMinecraft().getTextureManager().bindTexture(SNOWFLAKE);
         }
         GlStateManager.disableLighting();
-        double currentMinU = 0.25D * particleTextureIndexX;
-        double currentMaxU = currentMinU + 0.25D;
-        double currentMinV = 0.25D * particleTextureIndexY;
-        double currentMaxV = currentMinV + 0.25D;
+//        double currentMinU = 0.25D * particleTextureIndexX;
+//        double currentMaxU = currentMinU + 0.25D;
+//        double currentMinV = 0.25D * particleTextureIndexY;
+//        double currentMaxV = currentMinV + 0.25D;
         float alpha = 1;
         GL11.glPushMatrix();
         buffer.begin(7, DefaultVertexFormats.PARTICLE_POSITION_TEX_COLOR_LMAP);

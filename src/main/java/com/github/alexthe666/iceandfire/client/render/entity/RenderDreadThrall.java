@@ -60,8 +60,11 @@ public class RenderDreadThrall extends RenderLiving<EntityDreadThrall> {
                         return modelLeggings;
                     case FEET:
                         return modelBoots;
+				case MAINHAND:
+				case OFFHAND:
+				default:
+					return modelArmor;
                 }
-                return modelArmor;
             }
 
             @Override
@@ -85,6 +88,10 @@ public class RenderDreadThrall extends RenderLiving<EntityDreadThrall> {
                     case FEET:
                         model.bipedRightLeg.invisible = false;
                         model.bipedLeftLeg.invisible = false;
+				case MAINHAND:
+				case OFFHAND:
+				default:
+					break;
                 }
             }
 

@@ -104,7 +104,7 @@ public class IceExplosion extends Explosion {
             }
         }
 
-        if (DragonUtils.canGrief(this.worldObj,false)) {
+        if (DimensionGriefing.canGrief(this.worldObj,false)) {
             this.affectedBlockPositions.addAll(set);
         }
         float f3 = this.explosionSize * 2.0F;

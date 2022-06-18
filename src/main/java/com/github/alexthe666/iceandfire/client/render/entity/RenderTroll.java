@@ -19,7 +19,7 @@ public class RenderTroll extends RenderLiving<EntityTroll> implements ICustomSto
 
     public RenderTroll(RenderManager renderManager) {
         super(renderManager, new ModelTroll(), 0.9F);
-        this.layerRenderers.add(new LayerTrollWeapon(this));
+        this.layerRenderers.add(new LayerTrollWeapon<EntityTroll>(this));
         this.layerRenderers.add(new LayerTrollEyes(this));
     }
 

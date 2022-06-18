@@ -31,8 +31,8 @@ public class BlockDreadTorch extends BlockTorch implements IDreadBlock {
         double d0 = (double) pos.getX() + 0.5D;
         double d1 = (double) pos.getY() + 0.6D;
         double d2 = (double) pos.getZ() + 0.5D;
-        double d3 = 0.22D;
-        double d4 = 0.27D;
+//        double d3 = 0.22D;
+//        double d4 = 0.27D;
         if (enumfacing.getAxis().isHorizontal()) {
             EnumFacing enumfacing1 = enumfacing.getOpposite();
             //worldIn.spawnParticle(EnumParticleTypes.SMOKE_NORMAL, d0 + 0.27D * (double)enumfacing1.getXOffset(), d1 + 0.22D, d2 + 0.27D * (double)enumfacing1.getZOffset(), 0.0D, 0.0D, 0.0D);

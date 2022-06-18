@@ -130,13 +130,11 @@ public class BlockEggInIce extends BlockContainer {
     }
 
     @Override
-    @SuppressWarnings("deprecation")
     public boolean isOpaqueCube(IBlockState blockstate) {
         return false;
     }
 
     @Override
-    @SuppressWarnings("deprecation")
     public boolean isFullCube(IBlockState blockstate) {
         return false;
     }

@@ -17,7 +17,7 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.MathHelper;
 import org.lwjgl.opengl.GL11;
 
-public class RenderPodium extends TileEntitySpecialRenderer {
+public class RenderPodium extends TileEntitySpecialRenderer<TileEntity> {
 
     protected static ResourceLocation getEggTexture(EnumDragonEgg type) {
         switch (type) {

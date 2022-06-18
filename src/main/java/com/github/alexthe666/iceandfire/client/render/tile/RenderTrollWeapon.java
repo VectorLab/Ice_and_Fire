@@ -8,7 +8,7 @@ import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.tileentity.TileEntity;
 import org.lwjgl.opengl.GL11;
 
-public class RenderTrollWeapon extends TileEntitySpecialRenderer {
+public class RenderTrollWeapon extends TileEntitySpecialRenderer<TileEntity> {
     private static final ModelBase MODEL = new ModelTrollWeapon();
 
     public RenderTrollWeapon() {
@@ -19,7 +19,7 @@ public class RenderTrollWeapon extends TileEntitySpecialRenderer {
         renderItem(EnumTroll.Weapon.AXE, x, y, z, f, f1, alpha);
     }
 
-    public void renderItem(EnumTroll.Weapon weapon, double x, double y, double z, float f, int f1, float alpha) {
+    public static void renderItem(EnumTroll.Weapon weapon, double x, double y, double z, float f, int f1, float alpha) {
         GL11.glPushMatrix();
         GL11.glTranslatef((float) x + 0.5F, (float) y - 0.75F, (float) z + 0.5F);
         GL11.glPushMatrix();

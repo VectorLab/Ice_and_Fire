@@ -38,7 +38,7 @@ public class TraitArrowKnockback extends AbstractProjectileTrait {
                     double d0 = world.rand.nextGaussian() * 0.02D;
                     double d1 = world.rand.nextGaussian() * 0.02D;
                     double d2 = world.rand.nextGaussian() * 0.02D;
-                    double d3 = 10.0D;
+//                    double d3 = 10.0D;
                     double xRatio = entity.motionX * height;
                     double zRatio = entity.motionZ * height;
                     world.spawnParticle(EnumParticleTypes.CLOUD, entity.posX + xRatio + (double) (world.rand.nextFloat() * entity.width * 5.0F) - (double) entity.width - d0 * 10.0D, entity.posY + (double) (world.rand.nextFloat() * entity.height) - d1 * 10.0D + height, entity.posZ + zRatio + (double) (world.rand.nextFloat() * entity.width * 5.0F) - (double) entity.width - d2 * 10.0D, d0, d1, d2);
@@ -57,7 +57,7 @@ public class TraitArrowKnockback extends AbstractProjectileTrait {
             double d0 = world.rand.nextGaussian() * 0.02D;
             double d1 = world.rand.nextGaussian() * 0.02D;
             double d2 = world.rand.nextGaussian() * 0.02D;
-            double d3 = 10.0D;
+//            double d3 = 10.0D;
             double xRatio = projectile.motionX * projectile.height;
             double zRatio = projectile.motionZ * projectile.height;
             world.spawnParticle(EnumParticleTypes.CLOUD, projectile.posX + xRatio + (double) (world.rand.nextFloat() * projectile.width * 1.0F) - (double) projectile.width - d0 * 10.0D, projectile.posY + (double) (world.rand.nextFloat() * projectile.height) - d1 * 10.0D, projectile.posZ + zRatio + (double) (world.rand.nextFloat() * projectile.width * 1.0F) - (double) projectile.width - d2 * 10.0D, d0, d1, d2);

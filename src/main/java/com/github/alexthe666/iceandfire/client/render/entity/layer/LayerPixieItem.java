@@ -32,7 +32,7 @@ public class LayerPixieItem implements LayerRenderer<EntityPixie> {
             if (this.renderer.getMainModel().isChild) {
                 GlStateManager.translate(0.0F, 0.625F, 0.0F);
                 GlStateManager.rotate(-20.0F, -1.0F, 0.0F, 0.0F);
-                float f = 0.5F;
+//                float f = 0.5F;
                 GlStateManager.scale(0.5F, 0.5F, 0.5F);
             }
 

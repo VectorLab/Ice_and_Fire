@@ -23,7 +23,7 @@ public class RenderStoneStatue extends RenderLiving<EntityStoneStatue> {
 
     public RenderStoneStatue(RenderManager renderManager) {
         super(renderManager, MODEL, 0.5F);
-        this.layerRenderers.add(new LayerStonePlayerEntityCrack(this));
+        this.layerRenderers.add(new LayerStonePlayerEntityCrack<EntityStoneStatue>(this));
         LayerBipedArmor layerbipedarmor = new LayerBipedArmor(this) {
             protected void initArmor() {
                 this.modelLeggings = new ModelStonePlayer(0.5F, true);

@@ -1,8 +1,11 @@
 package com.github.alexthe666.iceandfire.block;
 
+import javax.annotation.Nullable;
+
 import com.github.alexthe666.iceandfire.IceAndFire;
 import com.github.alexthe666.iceandfire.entity.EntityMyrmexBase;
 import com.github.alexthe666.iceandfire.item.ICustomRendered;
+
 import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
@@ -23,11 +26,9 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-import javax.annotation.Nullable;
-
 public class BlockMyrmexResin extends Block implements ICustomRendered {
 
-    public static final PropertyEnum VARIANT = PropertyEnum.create("variant", BlockMyrmexResin.EnumType.class);
+    public static final PropertyEnum<BlockMyrmexResin.EnumType> VARIANT = PropertyEnum.create("variant", BlockMyrmexResin.EnumType.class);
     protected static final AxisAlignedBB STICKY_AABB = new AxisAlignedBB(0.0D, 0.0D, 0.0D, 1.0D, 0.875D, 1.0D);
     private boolean sticky;
 
@@ -65,7 +66,6 @@ public class BlockMyrmexResin extends Block implements ICustomRendered {
 
 
     @Override
-    @SuppressWarnings("deprecation")
     public IBlockState getStateFromMeta(int meta) {
         return this.getDefaultState().withProperty(VARIANT, EnumType.values()[MathHelper.clamp(meta, 0, 1)]);
     }
@@ -85,12 +85,12 @@ public class BlockMyrmexResin extends Block implements ICustomRendered {
     protected BlockStateContainer createBlockState() {
         return new BlockStateContainer(this, VARIANT);
     }
-
+/*
     @Nullable
     public AxisAlignedBB getCollisionBoundingBox(IBlockState blockState, IBlockAccess worldIn, BlockPos pos) {
         return super.getCollisionBoundingBox(blockState, worldIn, pos);
     }
-
+*/
 
     public void onEntityCollidedWithBlock(World worldIn, BlockPos pos, IBlockState state, Entity entityIn) {
         if (sticky) {

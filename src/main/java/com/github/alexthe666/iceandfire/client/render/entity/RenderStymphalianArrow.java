@@ -1,21 +1,22 @@
 package com.github.alexthe666.iceandfire.client.render.entity;
 
+import org.lwjgl.opengl.GL11;
+
 import com.github.alexthe666.iceandfire.entity.EntityStymphalianArrow;
+
 import net.minecraft.client.renderer.BufferBuilder;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
-import net.minecraft.entity.Entity;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.MathHelper;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-import org.lwjgl.opengl.GL11;
 
 @SideOnly(Side.CLIENT)
-public class RenderStymphalianArrow extends Render {
+public class RenderStymphalianArrow extends Render<EntityStymphalianArrow> {
     private static final ResourceLocation arrowTextures = new ResourceLocation("iceandfire:textures/models/misc/stymphalian_arrow.png");
 
     public RenderStymphalianArrow(RenderManager render) {
@@ -87,7 +88,7 @@ public class RenderStymphalianArrow extends Render {
         return arrowTextures;
     }
 
-    @Override
+/*    @Override
     protected ResourceLocation getEntityTexture(Entity entity) {
         return this.getEntityTexture((EntityStymphalianArrow) entity);
     }
@@ -95,5 +96,5 @@ public class RenderStymphalianArrow extends Render {
     @Override
     public void doRender(Entity entity, double x, double y, double z, float f, float partialTicks) {
         this.doRender((EntityStymphalianArrow) entity, x, y, z, f, partialTicks);
-    }
+    }*/
 }

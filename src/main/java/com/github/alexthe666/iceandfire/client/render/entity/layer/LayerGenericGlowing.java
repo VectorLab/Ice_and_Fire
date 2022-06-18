@@ -31,9 +31,9 @@ public class LayerGenericGlowing implements LayerRenderer<EntityLiving> {
             GlStateManager.blendFunc(GlStateManager.SourceFactor.ONE, GlStateManager.DestFactor.ONE);
             GlStateManager.disableLighting();
             GlStateManager.depthMask(!gorgon.isInvisible());
-            int i = 61680;
-            int j = 61680;
-            int k = 0;
+//            int i = 61680;
+//            int j = 61680;
+//            int k = 0;
             OpenGlHelper.setLightmapTextureCoords(OpenGlHelper.lightmapTexUnit, 240.0F, 0.0F);
             GlStateManager.enableLighting();
             GlStateManager.color(1.0F, 1.0F, 1.0F, 1.0F);

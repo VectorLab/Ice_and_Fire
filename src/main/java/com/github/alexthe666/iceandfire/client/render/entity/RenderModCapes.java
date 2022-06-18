@@ -20,7 +20,7 @@ import org.lwjgl.opengl.GL11;
 
 import java.util.Map;
 import java.util.UUID;
-
+// disabled
 @SideOnly(Side.CLIENT)
 public class RenderModCapes {
     public ResourceLocation redTex = new ResourceLocation("iceandfire", "textures/models/misc/cape_fire.png");
@@ -31,17 +31,17 @@ public class RenderModCapes {
     public ResourceLocation betaElytraTex = new ResourceLocation("iceandfire", "textures/models/misc/elytra_beta.png");
 
     public UUID[] redcapes = new UUID[]{
-            /* zeklo */UUID.fromString("59efccaf-902d-45da-928a-5a549b9fd5e0"),
-            /* Alexthe666 */UUID.fromString("71363abe-fd03-49c9-940d-aae8b8209b7c")
+            UUID.fromString("59efccaf-902d-45da-928a-5a549b9fd5e0"),//zeklo
+            UUID.fromString("71363abe-fd03-49c9-940d-aae8b8209b7c")//Alexthe666
     };
     public UUID[] bluecapes = new UUID[]{
-            /* Raptorfarian */UUID.fromString("0ed918c8-d612-4360-b711-cd415671356f"),
-            /*Zyranna*/        UUID.fromString("5d43896a-06a0-49fb-95c5-38485c63667f")};
+            UUID.fromString("0ed918c8-d612-4360-b711-cd415671356f"),//Raptorfarian
+            UUID.fromString("5d43896a-06a0-49fb-95c5-38485c63667f")};//Zyranna
     public UUID[] betatesters = new UUID[]{
     };
 
-    @SubscribeEvent
-    public void playerRender(RenderPlayerEvent.Pre event) {
+//    @SubscribeEvent
+    private void playerRender(RenderPlayerEvent.Pre event) {
         if (event.getEntityPlayer() instanceof AbstractClientPlayer) {
             NetworkPlayerInfo info = ((AbstractClientPlayer)event.getEntityPlayer()).getPlayerInfo();
             if (info != null) {
@@ -72,7 +72,7 @@ public class RenderModCapes {
         if(event.getEntityPlayer().getUniqueID().equals(ServerEvents.ALEX_UUID)){
             GL11.glPushMatrix();
             float f2 = ((float) event.getEntityPlayer().ticksExisted - 1 +  event.getPartialRenderTick());
-            float f3 = MathHelper.sin(f2 / 10.0F) * 0.1F + 0.1F;
+//            float f3 = MathHelper.sin(f2 / 10.0F) * 0.1F + 0.1F;
             GL11.glTranslatef((float) 0, (float) 1.3F * event.getEntityPlayer().height, (float) 0);
             float f4 = (f2 / 20.0F) * (180F / (float) Math.PI);
             GlStateManager.rotate(f4, 0.0F, 1.0F, 0.0F);

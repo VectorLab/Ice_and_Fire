@@ -8,7 +8,7 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ResourceLocation;
 import org.lwjgl.opengl.GL11;
 
-public class RenderGorgonHead extends TileEntitySpecialRenderer {
+public class RenderGorgonHead extends TileEntitySpecialRenderer<TileEntity> {
     private static final ResourceLocation ACTIVE_TEXTURE = new ResourceLocation("iceandfire:textures/models/gorgon/head_active.png");
     private static final ResourceLocation INACTIVE_TEXTURE = new ResourceLocation("iceandfire:textures/models/gorgon/head_inactive.png");
     private static final ModelBase ACTIVE_MODEL = new ModelGorgonHeadActive();

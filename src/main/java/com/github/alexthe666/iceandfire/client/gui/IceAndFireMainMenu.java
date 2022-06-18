@@ -1,21 +1,5 @@
 package com.github.alexthe666.iceandfire.client.gui;
 
-import com.github.alexthe666.iceandfire.IceAndFire;
-import com.mojang.realmsclient.gui.ChatFormatting;
-import net.ilexiconn.llibrary.LLibrary;
-import net.minecraft.client.Minecraft;
-import net.minecraft.client.gui.FontRenderer;
-import net.minecraft.client.gui.GuiMainMenu;
-import net.minecraft.client.gui.ScaledResolution;
-import net.minecraft.client.renderer.BufferBuilder;
-import net.minecraft.client.renderer.GlStateManager;
-import net.minecraft.client.renderer.Tessellator;
-import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
-import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.math.MathHelper;
-import net.minecraftforge.client.ForgeHooksClient;
-import org.lwjgl.opengl.GL11;
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
@@ -27,6 +11,23 @@ import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+
+import org.lwjgl.opengl.GL11;
+
+import com.github.alexthe666.iceandfire.IceAndFire;
+import com.mojang.realmsclient.gui.ChatFormatting;
+
+import net.ilexiconn.llibrary.LLibrary;
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.gui.FontRenderer;
+import net.minecraft.client.gui.GuiMainMenu;
+import net.minecraft.client.renderer.BufferBuilder;
+import net.minecraft.client.renderer.GlStateManager;
+import net.minecraft.client.renderer.Tessellator;
+import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
+import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.math.MathHelper;
+import net.minecraftforge.client.ForgeHooksClient;
 
 public class IceAndFireMainMenu extends GuiMainMenu {
     public static final int LAYER_COUNT = 2;
@@ -136,8 +137,8 @@ public class IceAndFireMainMenu extends GuiMainMenu {
         globalAlpha = 0;
         Random random = new Random();
         drawnPictures = new Picture[1 + random.nextInt(2)];
-        int cornerRight = 32;
-        int cornerLeft = 32;
+//        int cornerRight = 32;
+//        int cornerLeft = 32;
         boolean left = random.nextBoolean();
         for (int i = 0; i < drawnPictures.length; i++) {
             left = !left;
@@ -211,7 +212,7 @@ public class IceAndFireMainMenu extends GuiMainMenu {
             float widthScale = this.width / 427F;
             float imageScale = widthScale * 128;
             for (Enscription enscription : drawnEnscriptions) {
-                float f2 = (float) 60 - partialTicks;
+//                float f2 = (float) 60 - partialTicks;
                 int color = 0X9C8B7B;
                 int opacity = 10 + (int) (255 * enscription.alpha * globalAlpha);
                 this.mc.standardGalacticFontRenderer.drawString(enscription.text, (int)(enscription.x * widthScale) + middleX, (int)(enscription.y * widthScale) + middleY, color | (opacity << 24));
@@ -219,7 +220,7 @@ public class IceAndFireMainMenu extends GuiMainMenu {
             for (Picture picture : drawnPictures) {
                 GlStateManager.color(1.0F, 1.0F, 1.0F, picture.alpha * globalAlpha + 0.01F);
                 this.mc.getTextureManager().bindTexture(drawingTextures[picture.image]);
-                ScaledResolution res = new ScaledResolution(this.mc);
+//                ScaledResolution res = new ScaledResolution(this.mc);
                 //3 -> 1
                 //1 -> 3
                 this.drawTexturedModalRect((picture.x * widthScale) + middleX, (picture.y * widthScale) + middleY, 0, 0, imageScale, imageScale, imageScale, imageScale, this.zLevel);
@@ -285,14 +286,14 @@ public class IceAndFireMainMenu extends GuiMainMenu {
         int x;
         int y;
         float alpha;
-        float scale;
+//        float scale;
 
         public Picture(int image, int x, int y, float alpha, float scale) {
             this.image = image;
             this.x = x;
             this.y = y;
             this.alpha = alpha;
-            this.scale = scale;
+//            this.scale = scale;
         }
     }
 
@@ -300,7 +301,7 @@ public class IceAndFireMainMenu extends GuiMainMenu {
         String text;
         int x;
         int y;
-        int color;
+//        int color;
         float alpha;
 
         public Enscription(String text, int x, int y, float alpha, int color) {
@@ -308,7 +309,7 @@ public class IceAndFireMainMenu extends GuiMainMenu {
             this.x = x;
             this.y = y;
             this.alpha = alpha;
-            this.color = color;
+//            this.color = color;
         }
     }
 }

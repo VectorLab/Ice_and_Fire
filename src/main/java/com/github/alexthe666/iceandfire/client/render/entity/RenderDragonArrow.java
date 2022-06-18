@@ -15,7 +15,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 import org.lwjgl.opengl.GL11;
 
 @SideOnly(Side.CLIENT)
-public class RenderDragonArrow extends Render {
+public class RenderDragonArrow extends Render<Entity> {
     private static final ResourceLocation arrowTextures = new ResourceLocation("iceandfire:textures/models/misc/dragonbone_arrow.png");
 
     public RenderDragonArrow(RenderManager render) {

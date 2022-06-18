@@ -1,26 +1,16 @@
 package com.github.alexthe666.iceandfire.client.render;
 
-import net.ilexiconn.llibrary.LLibrary;
+//import java.lang.reflect.Field;
+
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.multiplayer.WorldClient;
-import net.minecraft.client.renderer.*;
-import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
-import net.minecraft.client.renderer.vertex.VertexBuffer;
-import net.minecraft.entity.Entity;
-import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.math.MathHelper;
-import net.minecraft.util.math.Vec3d;
+//import net.minecraft.client.renderer.RenderGlobal;
+//import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.IRenderHandler;
-import net.minecraftforge.fml.relauncher.ReflectionHelper;
-import org.lwjgl.opengl.GL11;
-
-import javax.vecmath.Vector2d;
-import javax.vecmath.Vector4f;
-import java.lang.reflect.Field;
-import java.util.Random;
+//import net.minecraftforge.fml.relauncher.ReflectionHelper;
 
 public class RenderDreadlandsAurora extends IRenderHandler {
-    private static final ResourceLocation AURORA_TEXTURES = new ResourceLocation("iceandfire:textures/environment/dread_aurora.png");
+/*	private static final ResourceLocation AURORA_TEXTURES = new ResourceLocation("iceandfire:textures/environment/dread_aurora.png");
 
 
     private static Field CLOUD_TICK_COUNTER;
@@ -43,15 +33,9 @@ public class RenderDreadlandsAurora extends IRenderHandler {
         STAR_LIST = ReflectionHelper.findField(RenderGlobal.class, "starGLCallList", "field_72772_v");
     }
 
-    
-    @Override
-    public void render(float partialTicks, WorldClient world, Minecraft mc) {
-        this.renderClouds(mc);
-    }
 
-    public void renderClouds(Minecraft mc) {
 
-    }
+
 
     private net.minecraft.client.renderer.vertex.VertexBuffer getSkyVBO() {
         try {
@@ -114,5 +98,14 @@ public class RenderDreadlandsAurora extends IRenderHandler {
             e.printStackTrace();
         }
         return 0;
+    }
+
+    private void renderClouds(Minecraft mc) {
+
+    }
+*/
+    @Override
+    public void render(float partialTicks, WorldClient world, Minecraft mc) {
+        //this.renderClouds(mc);
     }
 }

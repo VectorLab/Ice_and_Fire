@@ -43,7 +43,7 @@ public class GuiBestiary extends GuiScreen {
     private static final ResourceLocation TEXTURE = new ResourceLocation("iceandfire:textures/gui/bestiary/bestiary.png");
     private static final ResourceLocation DRAWINGS_0 = new ResourceLocation("iceandfire:textures/gui/bestiary/drawings_0.png");
     private static final ResourceLocation DRAWINGS_1 = new ResourceLocation("iceandfire:textures/gui/bestiary/drawings_1.png");
-    private static final ResourceLocation DRAWINGS_2 = new ResourceLocation("iceandfire:textures/gui/bestiary/drawings_2.png");
+//    private static final ResourceLocation DRAWINGS_2 = new ResourceLocation("iceandfire:textures/gui/bestiary/drawings_2.png");
     private static final Map<String, ResourceLocation> PICTURE_LOCATION_CACHE = Maps.newHashMap();
     public List<EnumBestiaryPages> allPageTypes = new ArrayList<EnumBestiaryPages>();
     public EnumBestiaryPages pageType;
@@ -60,7 +60,7 @@ public class GuiBestiary extends GuiScreen {
 
     public GuiBestiary(ItemStack book) {
         this.book = book;
-        int indexPageTotal = 0;
+//        int indexPageTotal = 0;
         if (!book.isEmpty() && book.getItem() != null && book.getItem() == IafItemRegistry.bestiary) {
             if (book.getTagCompound() != null) {
                 List<EnumBestiaryPages> pages = EnumBestiaryPages.containedPages(EnumBestiaryPages.toList(book.getTagCompound().getIntArray("Pages")));
@@ -946,6 +946,14 @@ public class GuiBestiary extends GuiScreen {
                     drawItemStack(new ItemStack(IafItemRegistry.sea_serpent_arrow), 60, 33, 2F);
                 }
                 break;
+		case DRAGONFORGE:
+			break;
+		case DREAD_MOBS:
+			break;
+		case HYDRA:
+			break;
+		default:
+			break;
         }
         writeFromTxt();
     }
@@ -966,9 +974,9 @@ public class GuiBestiary extends GuiScreen {
             }
         }
         try {
-            Iterator iterator = IOUtils.readLines(resource.getInputStream(), "UTF-8").iterator();
+            Iterator<String> iterator = IOUtils.readLines(resource.getInputStream(), "UTF-8").iterator();
             String line = null;
-            int linenumber = 0;
+//            int linenumber = 0;
             while (iterator.hasNext()) {
                 line = ((String) iterator.next()).trim();
                 if (line.contains("<") || line.contains(">")) {
@@ -1048,7 +1056,7 @@ public class GuiBestiary extends GuiScreen {
             }
         }
         try {
-            Iterator iterator = IOUtils.readLines(resource.getInputStream(), "UTF-8").iterator();
+            Iterator<String> iterator = IOUtils.readLines(resource.getInputStream(), "UTF-8").iterator();
             String line = null;
             int linenumber = 0;
             while (iterator.hasNext()) {

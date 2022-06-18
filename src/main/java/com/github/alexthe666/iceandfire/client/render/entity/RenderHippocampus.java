@@ -1,20 +1,21 @@
 package com.github.alexthe666.iceandfire.client.render.entity;
 
+import javax.annotation.Nullable;
+
+import org.lwjgl.opengl.GL11;
+
 import com.github.alexthe666.iceandfire.client.model.ModelHippocampus;
 import com.github.alexthe666.iceandfire.entity.EntityHippocampus;
+
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.entity.RenderLiving;
 import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.client.renderer.entity.layers.LayerRenderer;
-import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.passive.EntitySheep;
 import net.minecraft.item.EnumDyeColor;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-import org.lwjgl.opengl.GL11;
-
-import javax.annotation.Nullable;
 
 @SideOnly(Side.CLIENT)
 public class RenderHippocampus extends RenderLiving<EntityHippocampus> {
@@ -63,7 +64,7 @@ public class RenderHippocampus extends RenderLiving<EntityHippocampus> {
     }
 
     @SideOnly(Side.CLIENT)
-    private class LayerHippocampusSaddle implements LayerRenderer {
+    private class LayerHippocampusSaddle implements LayerRenderer<EntityHippocampus>{
         private final RenderHippocampus renderer;
 
         public LayerHippocampusSaddle(RenderHippocampus renderer) {
@@ -82,13 +83,13 @@ public class RenderHippocampus extends RenderLiving<EntityHippocampus> {
             return false;
         }
 
-        @Override
+        /*@Override
         public void doRenderLayer(EntityLivingBase entity, float f, float f1, float f2, float f3, float f4, float f5, float f6) {
             this.doRenderLayer((EntityHippocampus) entity, f, f1, f2, f3, f4, f5, f6);
-        }
+        }*/
     }
 
-    private class LayerHippocampusRainbow implements LayerRenderer {
+    private class LayerHippocampusRainbow implements LayerRenderer<EntityHippocampus> {
         private final RenderHippocampus renderer;
         private final ResourceLocation TEXTURE = new ResourceLocation("iceandfire:textures/models/hippocampus/rainbow.png");
         private final ResourceLocation TEXTURE_BLINK = new ResourceLocation("iceandfire:textures/models/hippocampus/rainbow_blink.png");
@@ -101,7 +102,7 @@ public class RenderHippocampus extends RenderLiving<EntityHippocampus> {
             if (entitylivingbaseIn.hasCustomName() && entitylivingbaseIn.getCustomNameTag().toLowerCase().contains("rainbow")) {
                 GL11.glPushMatrix();
                 this.renderer.bindTexture(entitylivingbaseIn.isBlinking() ? TEXTURE_BLINK : TEXTURE);
-                int i1 = 25;
+//                int i1 = 25;
                 int i = entitylivingbaseIn.ticksExisted / 25 + entitylivingbaseIn.getEntityId();
                 int j = EnumDyeColor.values().length;
                 int k = i % j;
@@ -120,15 +121,15 @@ public class RenderHippocampus extends RenderLiving<EntityHippocampus> {
             return false;
         }
 
-        @Override
+/*        @Override
         public void doRenderLayer(EntityLivingBase entity, float f, float f1, float f2, float f3, float f4, float f5, float f6) {
             this.doRenderLayer((EntityHippocampus) entity, f, f1, f2, f3, f4, f5, f6);
-        }
+        }*/
     }
 
 
     @SideOnly(Side.CLIENT)
-    private class LayerHippocampusBridle implements LayerRenderer {
+    private class LayerHippocampusBridle implements LayerRenderer<EntityHippocampus> {
         private final RenderHippocampus renderer;
         private final ResourceLocation TEXTURE = new ResourceLocation("iceandfire:textures/models/hippocampus/bridle.png");
 
@@ -148,14 +149,14 @@ public class RenderHippocampus extends RenderLiving<EntityHippocampus> {
             return false;
         }
 
-        @Override
+/*        @Override
         public void doRenderLayer(EntityLivingBase entity, float f, float f1, float f2, float f3, float f4, float f5, float f6) {
             this.doRenderLayer((EntityHippocampus) entity, f, f1, f2, f3, f4, f5, f6);
-        }
+        }*/
     }
 
     @SideOnly(Side.CLIENT)
-    private class LayerHippocampusChest implements LayerRenderer {
+    private class LayerHippocampusChest implements LayerRenderer<EntityHippocampus> {
         private final RenderHippocampus renderer;
         private final ResourceLocation TEXTURE = new ResourceLocation("iceandfire:textures/models/hippocampus/chest.png");
 
@@ -175,14 +176,14 @@ public class RenderHippocampus extends RenderLiving<EntityHippocampus> {
             return false;
         }
 
-        @Override
+/*        @Override
         public void doRenderLayer(EntityLivingBase entity, float f, float f1, float f2, float f3, float f4, float f5, float f6) {
             this.doRenderLayer((EntityHippocampus) entity, f, f1, f2, f3, f4, f5, f6);
-        }
+        }*/
     }
 
     @SideOnly(Side.CLIENT)
-    private class LayerHippocampusArmor implements LayerRenderer {
+    private class LayerHippocampusArmor implements LayerRenderer<EntityHippocampus> {
         private final RenderHippocampus renderer;
         private final ResourceLocation TEXTURE_DIAMOND = new ResourceLocation("iceandfire:textures/models/hippocampus/armor_diamond.png");
         private final ResourceLocation TEXTURE_GOLD = new ResourceLocation("iceandfire:textures/models/hippocampus/armor_gold.png");
@@ -217,9 +218,9 @@ public class RenderHippocampus extends RenderLiving<EntityHippocampus> {
             return false;
         }
 
-        @Override
+/*        @Override
         public void doRenderLayer(EntityLivingBase entity, float f, float f1, float f2, float f3, float f4, float f5, float f6) {
             this.doRenderLayer((EntityHippocampus) entity, f, f1, f2, f3, f4, f5, f6);
-        }
+        }*/
     }
 }

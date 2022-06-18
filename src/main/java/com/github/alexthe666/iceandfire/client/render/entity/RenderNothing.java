@@ -9,23 +9,23 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 @SideOnly(Side.CLIENT)
-public class RenderNothing extends Render {
+public class RenderNothing<T extends Entity> extends Render<T> {
 
     public RenderNothing(RenderManager renderManager) {
         super(renderManager);
     }
 
     @Override
-    protected ResourceLocation getEntityTexture(Entity entity) {
+    protected ResourceLocation getEntityTexture(T entity) {
         return null;
     }
 
     @Override
-    public void doRender(Entity entity, double x, double y, double z, float yee, float partialTicks) {
+    public void doRender(T entity, double x, double y, double z, float yee, float partialTicks) {
 
     }
 
-    public boolean shouldRender(Entity livingEntity, ICamera camera, double camX, double camY, double camZ) {
+    public boolean shouldRender(T livingEntity, ICamera camera, double camX, double camY, double camZ) {
         return false;
     }
 

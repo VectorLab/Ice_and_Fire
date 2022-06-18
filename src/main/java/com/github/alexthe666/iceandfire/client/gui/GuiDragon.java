@@ -3,6 +3,7 @@ package com.github.alexthe666.iceandfire.client.gui;
 import com.github.alexthe666.iceandfire.client.StatCollector;
 import com.github.alexthe666.iceandfire.entity.EntityDragonBase;
 import com.github.alexthe666.iceandfire.inventory.ContainerDragon;
+
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.client.renderer.GlStateManager;
@@ -11,23 +12,22 @@ import net.minecraft.client.renderer.RenderHelper;
 import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.text.TextComponentTranslation;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 @SideOnly(Side.CLIENT)
 public class GuiDragon extends GuiContainer {
     private static final ResourceLocation texture = new ResourceLocation("iceandfire:textures/gui/dragon.png");
-    private IInventory playerInventory;
-    private IInventory dragonInv;
+//    private IInventory playerInventory;
+//    private IInventory dragonInv;
     private EntityDragonBase dragon;
     private float mousePosx;
     private float mousePosY;
 
     public GuiDragon(IInventory playerInv, EntityDragonBase dragon) {
         super(new ContainerDragon(dragon, Minecraft.getMinecraft().player));
-        this.playerInventory = playerInv;
-        this.dragonInv = dragon.dragonInventory;
+//        this.playerInventory = playerInv;
+//        this.dragonInv = dragon.dragonInventory;
         this.dragon = dragon;
         this.allowUserInput = false;
         this.ySize = 214;

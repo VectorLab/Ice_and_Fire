@@ -9,7 +9,7 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 @SideOnly(Side.CLIENT)
-public class LayerTrollWeapon implements LayerRenderer {
+public class LayerTrollWeapon<T extends EntityLivingBase> implements LayerRenderer<T> {
     private final RenderTroll renderer;
 
     public LayerTrollWeapon(RenderTroll renderer) {
@@ -29,7 +29,7 @@ public class LayerTrollWeapon implements LayerRenderer {
     }
 
     @Override
-    public void doRenderLayer(EntityLivingBase entity, float f, float f1, float f2, float f3, float f4, float f5, float f6) {
+    public void doRenderLayer(T entity, float f, float f1, float f2, float f3, float f4, float f5, float f6) {
         this.doRenderLayer((EntityTroll) entity, f, f1, f2, f3, f4, f5, f6);
     }
 }

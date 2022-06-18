@@ -45,13 +45,11 @@ public class BlockPixieHouse extends BlockContainer implements ICustomRendered {
     }
 
     @Override
-    @SuppressWarnings("deprecation")
     public boolean isOpaqueCube(IBlockState blockstate) {
         return false;
     }
 
     @Override
-    @SuppressWarnings("deprecation")
     public boolean isFullCube(IBlockState blockstate) {
         return false;
     }
@@ -76,7 +74,6 @@ public class BlockPixieHouse extends BlockContainer implements ICustomRendered {
         return 0;
     }
 
-    @SuppressWarnings("deprecation")
     public void neighborChanged(IBlockState state, World worldIn, BlockPos pos, Block blockIn, BlockPos fromPos) {
         worldIn.scheduleUpdate(pos, this, this.tickRate(worldIn));
     }
@@ -106,7 +103,6 @@ public class BlockPixieHouse extends BlockContainer implements ICustomRendered {
         return super.getStateForPlacement(worldIn, pos, facing, hitX, hitY, hitZ, meta, placer).withProperty(FACING, placer.getHorizontalFacing().getOpposite());
     }
 
-    @SuppressWarnings("deprecation")
     @Override
     public IBlockState getStateFromMeta(int meta) {
         return this.getDefaultState().withProperty(FACING, EnumFacing.byHorizontalIndex(meta));

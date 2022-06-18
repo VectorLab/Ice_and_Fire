@@ -13,7 +13,7 @@ import javax.annotation.Nullable;
 public class RenderDreadLichSkull extends Render<EntityDreadLichSkull> {
 
     public static final ResourceLocation TEXTURE = new ResourceLocation("iceandfire:textures/models/dread/dread_lich_skull.png");
-    private static final ModelDreadLichSkull MODEL_SPIRIT = new ModelDreadLichSkull();
+//    private static final ModelDreadLichSkull MODEL_SPIRIT = new ModelDreadLichSkull();
 
     public RenderDreadLichSkull(RenderManager manager) {
         super(manager);
@@ -23,7 +23,7 @@ public class RenderDreadLichSkull extends Render<EntityDreadLichSkull> {
         GlStateManager.pushMatrix();
         GlStateManager.disableCull();
         GlStateManager.translate((float) x, (float) y, (float) z);
-        float f = 0.0625F;
+//        float f = 0.0625F;
         GlStateManager.enableRescaleNormal();
         GlStateManager.enableAlpha();
         this.bindEntityTexture(entity);
@@ -55,11 +55,11 @@ public class RenderDreadLichSkull extends Render<EntityDreadLichSkull> {
         GlStateManager.popMatrix();
         super.doRender(entity, x, y, z, entityYaw, partialTicks);
     }
-
+/*
     private float interpolateValue(float start, float end, float pct) {
         return start + (end - start) * pct;
     }
-
+*/
     @Nullable
     @Override
     protected ResourceLocation getEntityTexture(EntityDreadLichSkull entity) {

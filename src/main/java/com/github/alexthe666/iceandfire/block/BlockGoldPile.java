@@ -41,7 +41,6 @@ public class BlockGoldPile extends Block {
     }
 
     @Override
-    @SuppressWarnings("deprecation")
     public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess source, BlockPos pos) {
         return SNOW_AABB[state.getValue(LAYERS)];
     }
@@ -57,13 +56,11 @@ public class BlockGoldPile extends Block {
     }
 
     @Override
-    @SuppressWarnings("deprecation")
     public boolean isTopSolid(IBlockState state) {
         return state.getValue(LAYERS) == 7;
     }
 
     @Override
-    @SuppressWarnings("deprecation")
     public AxisAlignedBB getSelectedBoundingBox(IBlockState blockState, World worldIn, BlockPos pos) {
         int i = blockState.getValue(LAYERS) - 1;
         float f = 0.125F;
@@ -87,7 +84,7 @@ public class BlockGoldPile extends Block {
                 if (item.getItem() == Item.getItemFromBlock(IafBlockRegistry.goldPile)) {
                     if (!item.isEmpty()) {
                         if (this.getMetaFromState(state) < 7) {
-                            WorldUtils.setBlock(worldIn, pos.getX(), pos.getY(), pos.getZ(), IafBlockRegistry.goldPile, this.getMetaFromState(state) + 1, 3);
+                        	worldIn.setBlockState(pos, IafBlockRegistry.goldPile.getStateFromMeta(this.getMetaFromState(state) + 1), 3);//WorldUtils.setBlock(worldIn, pos.getX(), pos.getY(), pos.getZ(), IafBlockRegistry.goldPile, this.getMetaFromState(state) + 1, 3);
                             if (!playerIn.capabilities.isCreativeMode) {
                                 item.shrink(1);
 
@@ -103,17 +100,16 @@ public class BlockGoldPile extends Block {
                 }
             }
         }
-        return super.onBlockActivated(worldIn, pos, state, playerIn, hand, side, hitX, hitY, hitZ);
+        return false;
+//        return super.onBlockActivated(worldIn, pos, state, playerIn, hand, side, hitX, hitY, hitZ);
     }
 
     @Override
-    @SuppressWarnings("deprecation")
     public boolean isOpaqueCube(IBlockState blockstate) {
         return false;
     }
 
     @Override
-    @SuppressWarnings("deprecation")
     public boolean isFullCube(IBlockState blockstate) {
         return false;
     }
@@ -147,7 +143,6 @@ public class BlockGoldPile extends Block {
     }
 
     @Override
-    @SuppressWarnings("deprecation")
     public IBlockState getStateFromMeta(int meta) {
         return this.getDefaultState().withProperty(LAYERS, (meta & 7) + 1);
     }

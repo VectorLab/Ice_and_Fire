@@ -94,9 +94,9 @@ public class ModelPixie extends ModelDragonBase {
 
     public void setRotationAngles(float f, float f1, float f2, float f3, float f4, float f5, EntityPixie entity) {
         float speed_fly = 1.1F;
-        float speed_idle = 0.05F;
+//        float speed_idle = 0.05F;
         float degree_fly = 1F;
-        float degree_idle = 0.5F;
+//        float degree_idle = 0.5F;
         AdvancedModelRenderer[] LEFT_WINGS = new AdvancedModelRenderer[]{Left_Wing, Left_Wing2};
         AdvancedModelRenderer[] RIGHT_WINGS = new AdvancedModelRenderer[]{Right_Wing, Right_Wing2};
 
@@ -152,18 +152,18 @@ public class ModelPixie extends ModelDragonBase {
 
     public void animateInHouse(TileEntityPixieHouse house) {
         this.resetToDefaultPose();
-        float speed_fly = 1.1F;
+/*        float speed_fly = 1.1F;
         float speed_idle = 0.05F;
         float degree_fly = 1F;
         float degree_idle = 0.5F;
         AdvancedModelRenderer[] LEFT_WINGS = new AdvancedModelRenderer[]{Left_Wing, Left_Wing2};
         AdvancedModelRenderer[] RIGHT_WINGS = new AdvancedModelRenderer[]{Right_Wing, Right_Wing2};
-        // this.chainWave(LEFT_WINGS, speed_fly, degree_fly * 0.75F, 1, house.ticksExisted, 1);
-        // this.chainWave(RIGHT_WINGS, speed_fly, degree_fly * 0.75F, 1, house.ticksExisted, 1);
+        this.chainWave(LEFT_WINGS, speed_fly, degree_fly * 0.75F, 1, house.ticksExisted, 1);
+        this.chainWave(RIGHT_WINGS, speed_fly, degree_fly * 0.75F, 1, house.ticksExisted, 1);
 
-        //this.Left_Leg.rotateAngleX = MathHelper.cos(f * 0.6662F + (float)Math.PI) * 1.0F * f1 * 0.5F / 1;
-        //this.Right_Leg.rotateAngleX = MathHelper.cos(f * 0.6662F) * 1.0F * f1 * 0.5F / 1;
-
+        this.Left_Leg.rotateAngleX = MathHelper.cos(f * 0.6662F + (float)Math.PI) * 1.0F * f1 * 0.5F / 1;
+        this.Right_Leg.rotateAngleX = MathHelper.cos(f * 0.6662F) * 1.0F * f1 * 0.5F / 1;
+*/
         float f12 = 0;//f1;
         if (f12 < 0.0F) {
             f12 = 0.0F;
@@ -209,9 +209,9 @@ public class ModelPixie extends ModelDragonBase {
     public void animateInJar(boolean sitting, TileEntityJar jar, float headRot) {
         this.resetToDefaultPose();
         float speed_fly = 1.1F;
-        float speed_idle = 0.05F;
+//        float speed_idle = 0.05F;
         float degree_fly = 1F;
-        float degree_idle = 0.5F;
+//        float degree_idle = 0.5F;
         AdvancedModelRenderer[] LEFT_WINGS = new AdvancedModelRenderer[]{Left_Wing, Left_Wing2};
         AdvancedModelRenderer[] RIGHT_WINGS = new AdvancedModelRenderer[]{Right_Wing, Right_Wing2};
         //this.Left_Leg.rotateAngleX = MathHelper.cos(f * 0.6662F + (float)Math.PI) * 1.0F * f1 * 0.5F / 1;
