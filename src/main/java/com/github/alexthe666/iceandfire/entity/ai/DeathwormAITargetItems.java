@@ -16,7 +16,7 @@ import java.util.List;
 public class DeathwormAITargetItems<T extends EntityItem> extends EntityAITarget {
     protected final DragonAITargetItems.Sorter theNearestAttackableTargetSorter;
     protected final Predicate<? super EntityItem> targetEntitySelector;
-    private final int targetChance;
+//    private final int targetChance;
     protected EntityItem targetEntity;
 
     public DeathwormAITargetItems(EntityDeathWorm creature, boolean checkSight) {
@@ -29,7 +29,7 @@ public class DeathwormAITargetItems<T extends EntityItem> extends EntityAITarget
 
     public DeathwormAITargetItems(EntityDeathWorm creature, int chance, boolean checkSight, boolean onlyNearby, @Nullable final Predicate<? super T> targetSelector) {
         super(creature, checkSight, onlyNearby);
-        this.targetChance = chance;
+//        this.targetChance = chance;
         this.theNearestAttackableTargetSorter = new DragonAITargetItems.Sorter(creature);
         this.targetEntitySelector = new Predicate<EntityItem>() {
             @Override

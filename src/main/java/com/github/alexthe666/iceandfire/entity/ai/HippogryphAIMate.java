@@ -16,7 +16,7 @@ import java.util.Random;
 
 public class HippogryphAIMate extends EntityAIBase {
     private final EntityHippogryph hippo;
-    private final Class<? extends EntityAnimal> mateClass;
+//    private final Class<? extends EntityAnimal> mateClass;
     World world;
     int spawnBabyDelay;
     double moveSpeed;
@@ -29,7 +29,7 @@ public class HippogryphAIMate extends EntityAIBase {
     public HippogryphAIMate(EntityHippogryph hippogryph, double speed, Class<? extends EntityAnimal> mate) {
         this.hippo = hippogryph;
         this.world = hippogryph.world;
-        this.mateClass = mate;
+//        this.mateClass = mate;
         this.moveSpeed = speed;
         this.setMutexBits(3);
     }

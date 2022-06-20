@@ -50,7 +50,7 @@ public class WorldGenEvents implements IWorldGenerator {
     private static final WorldGenCyclopsCave CYCLOPS_CAVE = new WorldGenCyclopsCave();
     private static final WorldGenSirenIsland SIREN_ISLAND = new WorldGenSirenIsland();
     private static final WorldGenHydraCave HYDRA_CAVE = new WorldGenHydraCave();
-    private static final ResourceLocation GORGON_TEMPLE = new ResourceLocation(IceAndFire.MODID, "gorgon_temple");
+//    private static final ResourceLocation GORGON_TEMPLE = new ResourceLocation(IceAndFire.MODID, "gorgon_temple");
     private BlockPos lastSnowVillage = null;
     private BlockPos lastPixieVillage = null;
     private BlockPos lastMyrmexHive = null;

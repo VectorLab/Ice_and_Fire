@@ -14,13 +14,13 @@ import java.util.Comparator;
 public class AquaticAIFindWaterTarget extends EntityAIBase {
     protected AquaticAIFindWaterTarget.Sorter fleePosSorter;
     private EntityCreature mob;
-    private int range;
-    private boolean avoidAttacker;
+//    private int range;
+//    private boolean avoidAttacker;
 
     public AquaticAIFindWaterTarget(EntityCreature mob, int range, boolean avoidAttacker) {
         this.mob = mob;
-        this.range = range;
-        this.avoidAttacker = avoidAttacker;
+//        this.range = range;
+//        this.avoidAttacker = avoidAttacker;
         this.setMutexBits(1);
         fleePosSorter = new Sorter(mob);
     }

@@ -16,10 +16,10 @@ import javax.annotation.Nullable;
 public class IafDragonFlightManager {
     private EntityDragonBase dragon;
     private Vec3d target;
-    private IafDragonAttacks.Air prevAirAttack;
+//    private IafDragonAttacks.Air prevAirAttack;
     private Vec3d startAttackVec;
     private Vec3d startPreyVec;
-    private boolean hasStartedToScorch = false;
+//    private boolean hasStartedToScorch = false;
     private EntityLivingBase prevAttackTarget = null;
 
     public IafDragonFlightManager(EntityDragonBase dragon) {
@@ -67,7 +67,7 @@ public class IafDragonFlightManager {
                 float distZ = (float) (startPreyVec.z - startAttackVec.z);
                 target = new Vec3d(entity.posX + distX, entity.posY + distY, entity.posZ + distZ);
                 dragon.tryScorchTarget();
-                hasStartedToScorch = true;
+//                hasStartedToScorch = true;
                 if (target != null && dragon.getDistance(target.x, target.y, target.z) < 10) {
                     target = new Vec3d(entity.posX - distX, entity.posY + distY, entity.posZ - distZ);
                 }
@@ -95,7 +95,7 @@ public class IafDragonFlightManager {
             }
         }
 
-        this.prevAirAttack = dragon.airAttack;
+//        this.prevAirAttack = dragon.airAttack;
     }
 
     public Vec3d getFlightTarget() {

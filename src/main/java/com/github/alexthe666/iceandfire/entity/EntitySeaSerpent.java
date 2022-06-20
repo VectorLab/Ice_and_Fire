@@ -68,7 +68,7 @@ public class EntitySeaSerpent extends EntityAnimal implements IAnimatedEntity, I
     private static final DataParameter<Boolean> JUMPING = EntityDataManager.createKey(EntitySeaSerpent.class, DataSerializers.BOOLEAN);
     private static final DataParameter<Boolean> BREATHING = EntityDataManager.createKey(EntitySeaSerpent.class, DataSerializers.BOOLEAN);
     private static final DataParameter<Boolean> ANCIENT = EntityDataManager.createKey(EntitySeaSerpent.class, DataSerializers.BOOLEAN);
-    private static final Predicate NOT_SEA_SERPENT = new Predicate<Entity>() {
+    private static final Predicate<Entity> NOT_SEA_SERPENT = new Predicate<Entity>() {
         public boolean apply(@Nullable Entity entity) {
             return entity instanceof EntityLivingBase && !(entity instanceof EntitySeaSerpent) && DragonUtils.isAlive((EntityLivingBase) entity);
         }
@@ -894,7 +894,7 @@ public class EntitySeaSerpent extends EntityAnimal implements IAnimatedEntity, I
         }
         float f4;
         if (this.isServerWorld()) {
-            float f5;
+//            float f5;
             if (this.isInWater()) {
                 this.moveRelative(strafe, vertical, forward, 0.1F);
                 f4 = 0.6F;
@@ -960,7 +960,7 @@ public class EntitySeaSerpent extends EntityAnimal implements IAnimatedEntity, I
     }
 
     public class SwimmingMoveHelper extends EntityMoveHelper {
-        private EntitySeaSerpent serpent = EntitySeaSerpent.this;
+//        private EntitySeaSerpent serpent = EntitySeaSerpent.this;
 
         public SwimmingMoveHelper() {
             super(EntitySeaSerpent.this);

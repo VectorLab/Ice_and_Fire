@@ -147,7 +147,7 @@ public class EntityMyrmexSwarmer extends EntityMyrmexRoyal {
 
     @Nullable
     public UUID getSummonerUUID() {
-        return (UUID) ((Optional) this.dataManager.get(SUMMONER_ID)).orNull();
+        return ((Optional<UUID>) this.dataManager.get(SUMMONER_ID)).orNull();
     }
 
     public int getTicksAlive() {

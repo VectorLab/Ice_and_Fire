@@ -90,7 +90,7 @@ public class EntityDreadLichSkull extends EntityArrow {
                 double minusX = target.posX - this.posX;
                 double minusY = target.posY + target.getEyeHeight() - this.posY;
                 double minusZ = target.posZ - this.posZ;
-                double speed = 0.25D * Math.min(this.getDistance(target), 10D) / 10D;
+//                double speed = 0.25D * Math.min(this.getDistance(target), 10D) / 10D;
                 this.motionX += (Math.signum(minusX) * 0.5D - this.motionX) * 0.10000000149011612D;
                 this.motionY += (Math.signum(minusY) * 0.5D - this.motionY) * 0.10000000149011612D;
                 this.motionZ += (Math.signum(minusZ) * 0.5D - this.motionZ) * 0.10000000149011612D;

@@ -161,6 +161,8 @@ public class EntityIceDragon extends EntityDragonBase {
                 case WING_BLAST:
                     this.setAnimation(ANIMATION_WINGBLAST);
                     break;
+			default:
+				break;
             }
         }
         return false;
@@ -180,7 +182,7 @@ public class EntityIceDragon extends EntityDragonBase {
             this.flyTicks = 0;
         }
         if (!world.isRemote && this.getAttackTarget() != null) {
-            float growSize = this.isInMaterialWater() ? 1.0F : 0.5F;
+//            float growSize = this.isInMaterialWater() ? 1.0F : 0.5F;
             if (this.getEntityBoundingBox().grow(2.5F + this.getRenderSize() * 0.33F, 2.5F + this.getRenderSize() * 0.33F, 2.5F + this.getRenderSize() * 0.33F).intersects(this.getAttackTarget().getEntityBoundingBox())) {
                 attackEntityAsMob(this.getAttackTarget());
             }
@@ -401,7 +403,7 @@ public class EntityIceDragon extends EntityDragonBase {
         double d2 = burnX - headPos.x;
         double d3 = burnY - headPos.y;
         double d4 = burnZ - headPos.z;
-        float particleScale = MathHelper.clamp(this.getRenderSize() * 0.08F, 0.55F, 3F);
+//        float particleScale = MathHelper.clamp(this.getRenderSize() * 0.08F, 0.55F, 3F);
         double distance = Math.max(5 * this.getDistance(burnX, burnY, burnZ), 0);
         double conqueredDistance = burnProgress / 40D * distance;
         int increment = (int)Math.ceil(conqueredDistance / 100);

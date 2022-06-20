@@ -14,7 +14,7 @@ import net.minecraft.world.World;
 
 public class PixieAIFollowOwner extends EntityAIBase {
     private final EntityPixie tameable;
-    private final double followSpeed;
+//    private final double followSpeed;
     World world;
     float maxDist;
     float minDist;
@@ -25,7 +25,7 @@ public class PixieAIFollowOwner extends EntityAIBase {
     public PixieAIFollowOwner(EntityPixie tameableIn, double followSpeedIn, float minDistIn, float maxDistIn) {
         this.tameable = tameableIn;
         this.world = tameableIn.world;
-        this.followSpeed = followSpeedIn;
+//        this.followSpeed = followSpeedIn;
         this.minDist = minDistIn;
         this.maxDist = maxDistIn;
         this.setMutexBits(3);
@@ -70,7 +70,6 @@ public class PixieAIFollowOwner extends EntityAIBase {
         return iblockstate.getMaterial() == Material.AIR || !iblockstate.isFullCube();
     }
 
-    @SuppressWarnings("deprecation")
     public void updateTask() {
         this.tameable.getLookHelper().setLookPositionWithEntity(this.owner, 10.0F, (float) this.tameable.getVerticalFaceSpeed());
 

@@ -23,7 +23,7 @@ public class WorldGenFireDragonRoosts extends WorldGenerator {
     @Override
     public boolean generate(World worldIn, Random rand, BlockPos position) {
         isMale = rand.nextBoolean();
-        int boulders = 0;
+//        int boulders = 0;
         int radius = 12 + rand.nextInt(8);
         {
             int j = radius;

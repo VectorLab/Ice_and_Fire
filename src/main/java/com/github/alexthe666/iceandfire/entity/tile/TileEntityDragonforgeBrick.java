@@ -8,7 +8,6 @@ import javax.annotation.Nullable;
 
 public class TileEntityDragonforgeBrick extends TileEntity {
 
-    @SuppressWarnings("unchecked")
     @Override
     @javax.annotation.Nullable
     public <T> T getCapability(net.minecraftforge.common.capabilities.Capability<T> capability, @javax.annotation.Nullable net.minecraft.util.EnumFacing facing) {

@@ -11,8 +11,8 @@ public class DreadLichAIStrife extends EntityAIBase {
     private final EntityDreadLich entity;
     private final double moveSpeedAmp;
     private final float maxAttackDistance;
-    private int attackCooldown;
-    private int attackTime = -1;
+//    private int attackCooldown;
+//    private int attackTime = -1;
     private int seeTime;
     private boolean strafingClockwise;
     private boolean strafingBackwards;
@@ -21,13 +21,13 @@ public class DreadLichAIStrife extends EntityAIBase {
     public DreadLichAIStrife(EntityDreadLich mob, double moveSpeedAmpIn, int attackCooldownIn, float maxAttackDistanceIn) {
         this.entity = mob;
         this.moveSpeedAmp = moveSpeedAmpIn;
-        this.attackCooldown = attackCooldownIn;
+//        this.attackCooldown = attackCooldownIn;
         this.maxAttackDistance = maxAttackDistanceIn * maxAttackDistanceIn;
         this.setMutexBits(3);
     }
 
     public void setAttackCooldown(int p_189428_1_) {
-        this.attackCooldown = p_189428_1_;
+//        this.attackCooldown = p_189428_1_;
     }
 
     public boolean shouldExecute() {
@@ -51,7 +51,7 @@ public class DreadLichAIStrife extends EntityAIBase {
         super.resetTask();
         ((IRangedAttackMob) this.entity).setSwingingArms(false);
         this.seeTime = 0;
-        this.attackTime = -1;
+//        this.attackTime = -1;
         this.entity.resetActiveHand();
     }
 
@@ -111,7 +111,7 @@ public class DreadLichAIStrife extends EntityAIBase {
             } else if (flag) {
                 this.entity.resetActiveHand();
                 ((IRangedAttackMob) this.entity).attackEntityWithRangedAttack(entitylivingbase, 0);
-                this.attackTime = this.attackCooldown;
+//                this.attackTime = this.attackCooldown;
             }
         }
     }

@@ -81,7 +81,7 @@ public class EntityDragonIceCharge extends EntityFireball implements IDragonProj
 
             if (this.isInWater()) {
                 for (int i = 0; i < 4; ++i) {
-                    float f1 = 0.25F;
+//                    float f1 = 0.25F;
                     this.world.spawnParticle(EnumParticleTypes.WATER_BUBBLE, this.posX - this.motionX * 0.25D, this.posY - this.motionY * 0.25D, this.posZ - this.motionZ * 0.25D, this.motionX, this.motionY, this.motionZ);
                 }
 
@@ -103,7 +103,7 @@ public class EntityDragonIceCharge extends EntityFireball implements IDragonProj
 
     @Override
     protected void onImpact(RayTraceResult movingObject) {
-        boolean flag = this.world.getGameRules().getBoolean("mobGriefing");
+//        boolean flag = this.world.getGameRules().getBoolean("mobGriefing");
 
         if (!this.world.isRemote) {
             if (movingObject.entityHit != null && movingObject.entityHit instanceof IDragonProjectile) {

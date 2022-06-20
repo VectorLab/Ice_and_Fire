@@ -73,7 +73,7 @@ public class EntityDeathWorm extends EntityTameable implements ISyncMount, IBlac
     private Animation currentAnimation;
     private EntityMutlipartPart[] segments = new EntityMutlipartPart[6];
     private boolean isSandNavigator;
-    private float prevScale = 0.0F;
+//    private float prevScale = 0.0F;
     private EntityLookHelper lookHelper;
     private int growthCounter = 0;
 
@@ -97,8 +97,8 @@ public class EntityDeathWorm extends EntityTameable implements ISyncMount, IBlac
         this.targetTasks.addTask(1, new EntityAIOwnerHurtByTarget(this));
         this.targetTasks.addTask(2, new EntityAIOwnerHurtTarget(this));
         this.targetTasks.addTask(3, new EntityAIHurtByTarget(this, false));
-        this.targetTasks.addTask(3, new DeathwormAITargetItems(this, false, false));
-        this.targetTasks.addTask(5, new DeathWormAITarget(this, EntityLivingBase.class, false, new Predicate<EntityLivingBase>() {
+        this.targetTasks.addTask(3, new DeathwormAITargetItems<>(this, false, false));
+        this.targetTasks.addTask(5, new DeathWormAITarget<>(this, EntityLivingBase.class, false, new Predicate<EntityLivingBase>() {
             @Override
             public boolean apply(@Nullable EntityLivingBase input) {
                 if (!EntityDeathWorm.this.isBeingRidden())
@@ -398,7 +398,7 @@ public class EntityDeathWorm extends EntityTameable implements ISyncMount, IBlac
     }
 
     public boolean processInteract(EntityPlayer player, EnumHand hand) {
-        ItemStack itemstack = player.getHeldItem(hand);
+//        ItemStack itemstack = player.getHeldItem(hand);
         if (player.getHeldItem(hand).interactWithEntity(player, this, hand)) {
             return true;
         }
@@ -857,7 +857,7 @@ public class EntityDeathWorm extends EntityTameable implements ISyncMount, IBlac
             }
         }
         if (this.isServerWorld()) {
-            float f5;
+//            float f5;
             if (this.isInSandStrict()) {
                 this.moveRelative(strafe, vertical, forward, 0.1F);
                 f4 = 0.8F;

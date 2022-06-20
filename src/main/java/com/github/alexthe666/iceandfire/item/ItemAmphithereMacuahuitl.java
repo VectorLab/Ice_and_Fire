@@ -48,7 +48,7 @@ public class ItemAmphithereMacuahuitl extends ItemSword {
             double d0 = rand.nextGaussian() * 0.02D;
             double d1 = rand.nextGaussian() * 0.02D;
             double d2 = rand.nextGaussian() * 0.02D;
-            double d3 = 10.0D;
+//            double d3 = 10.0D;
             targetEntity.world.spawnParticle(EnumParticleTypes.CLOUD, targetEntity.posX + (double) (rand.nextFloat() * targetEntity.width * 5.0F) - (double) targetEntity.width - d0 * 10.0D, targetEntity.posY + (double) (rand.nextFloat() * targetEntity.height) - d1 * 10.0D, targetEntity.posZ + (double) (rand.nextFloat() * targetEntity.width * 5.0F) - (double) targetEntity.width - d2 * 10.0D, d0, d1, d2);
         }
         return super.hitEntity(stack, targetEntity, attacker);

@@ -187,7 +187,7 @@ public class ClientEvents {
         if (player.getRidingEntity() != null) {
             if (player.getRidingEntity() instanceof EntityDragonBase) {
                 int currentView = IceAndFire.PROXY.getDragon3rdPersonView();
-                EntityDragonBase dragon = (EntityDragonBase) player.getRidingEntity();
+//                EntityDragonBase dragon = (EntityDragonBase) player.getRidingEntity();
                 float scale = ((EntityDragonBase) player.getRidingEntity()).getRenderSize() / 3;
                 if (Minecraft.getMinecraft().gameSettings.thirdPersonView == 1) {
                     if (currentView == 0) {
@@ -382,7 +382,7 @@ public class ClientEvents {
         }
         MiscEntityProperties miscProps = EntityPropertiesHandler.INSTANCE.getProperties(entity, MiscEntityProperties.class);
         if (miscProps != null && miscProps.glarers.size() > 0) {
-            float f = 1.0F;// ((float) miscProps.clientSideAttackTime + event.getPartialRenderTick()) / (float) 80;
+//            float f = 1.0F;// ((float) miscProps.clientSideAttackTime + event.getPartialRenderTick()) / (float) 80;
             Tessellator tessellator = Tessellator.getInstance();
             BufferBuilder bufferbuilder = tessellator.getBuffer();
             event.getRenderer().bindTexture(RenderCockatrice.TEXTURE_BEAM);
@@ -391,7 +391,7 @@ public class ClientEvents {
             GlStateManager.disableCull();
             GlStateManager.disableBlend();
             GlStateManager.depthMask(true);
-            float f1 = 240.0F;
+//            float f1 = 240.0F;
             OpenGlHelper.setLightmapTextureCoords(OpenGlHelper.lightmapTexUnit, 240.0F, 240.0F);
             GlStateManager.tryBlendFuncSeparate(GlStateManager.SourceFactor.SRC_ALPHA, GlStateManager.DestFactor.ONE, GlStateManager.SourceFactor.ONE, GlStateManager.DestFactor.ZERO);
             float f2 = (float) entity.world.getTotalWorldTime() + event.getPartialRenderTick();

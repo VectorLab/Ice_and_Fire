@@ -1,7 +1,5 @@
 package com.github.alexthe666.iceandfire.item;
 
-import net.minecraft.item.Item;
-
 public class ItemDreadQueenStaff extends ItemGeneric {
 
     public ItemDreadQueenStaff() {

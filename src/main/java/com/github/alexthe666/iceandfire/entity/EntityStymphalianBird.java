@@ -63,7 +63,7 @@ public class EntityStymphalianBird extends EntityCreature implements IAnimatedEn
     public StymphalianBirdFlock flock;
     private int animationTick;
     private Animation currentAnimation;
-    private EntityLivingBase victorEntity;
+//    private EntityLivingBase victorEntity;
     private boolean isFlying;
     private int flyTicks;
     private int launchTicks;
@@ -92,7 +92,7 @@ public class EntityStymphalianBird extends EntityCreature implements IAnimatedEn
         this.tasks.addTask(7, new EntityAIWatchClosest(this, EntityLivingBase.class, 6.0F));
         this.tasks.addTask(8, new EntityAILookIdle(this));
         this.targetTasks.addTask(1, new EntityAIHurtByTarget(this, true));
-        this.targetTasks.addTask(2, new StymphalianBirdAITarget(this, EntityLivingBase.class, true));
+        this.targetTasks.addTask(2, new StymphalianBirdAITarget<>(this, EntityLivingBase.class, true));
     }
 
     @Override
@@ -221,7 +221,7 @@ public class EntityStymphalianBird extends EntityCreature implements IAnimatedEn
 
     @Nullable
     public UUID getVictorId() {
-        return (UUID) ((Optional) this.dataManager.get(VICTOR_ENTITY)).orNull();
+        return ((Optional<UUID>) this.dataManager.get(VICTOR_ENTITY)).orNull();
     }
 
     public void setVictorId(@Nullable UUID uuid) {

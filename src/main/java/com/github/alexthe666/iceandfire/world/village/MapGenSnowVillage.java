@@ -22,13 +22,13 @@ import java.util.Random;
 
 public class MapGenSnowVillage extends WorldGenerator {
     public static List<Biome> VILLAGE_SPAWN_BIOMES = Arrays.asList(Biomes.ICE_MOUNTAINS, Biomes.ICE_PLAINS, Biomes.MUTATED_ICE_FLATS, IafWorldRegistry.GLACIER_BIOME, Biomes.COLD_TAIGA_HILLS, Biomes.FROZEN_OCEAN, Biomes.COLD_TAIGA);
-    private final int minTownSeparation;
+//    private final int minTownSeparation;
     private int size;
     private int distance;
 
     public MapGenSnowVillage() {
         this.distance = 9;
-        this.minTownSeparation = 8;
+//        this.minTownSeparation = 8;
     }
 
     public MapGenSnowVillage(Map<String, String> map) {
@@ -58,8 +58,8 @@ public class MapGenSnowVillage extends WorldGenerator {
     }
 
     protected boolean canSpawnStructureAtCoords(World world, int chunkX, int chunkZ) {
-        int i = chunkX;
-        int j = chunkZ;
+//        int i = chunkX;
+//        int j = chunkZ;
         if (chunkX < 0) {
             chunkX -= this.distance - 1;
         }

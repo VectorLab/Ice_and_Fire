@@ -1,17 +1,17 @@
 package com.github.alexthe666.iceandfire.entity.ai;
 
 import com.github.alexthe666.iceandfire.entity.EntityDragonBase;
+
 import net.minecraft.entity.ai.EntityAIBase;
-import net.minecraft.pathfinding.Path;
 
 public class DragonAIEscort extends EntityAIBase {
     private final EntityDragonBase dragon;
-    private final double movementSpeed;
-    private Path path;
+//    private final double movementSpeed;
+//    private Path path;
 
     public DragonAIEscort(EntityDragonBase entityIn, double movementSpeedIn) {
         this.dragon = entityIn;
-        this.movementSpeed = movementSpeedIn;
+//        this.movementSpeed = movementSpeedIn;
         this.setMutexBits(1);
     }
 

@@ -11,7 +11,7 @@ import net.minecraft.util.math.BlockPos;
 public class MyrmexAIStoreBabies extends EntityAIBase {
     private final EntityMyrmexWorker myrmex;
     private final double movementSpeed;
-    private Path path;
+//    private Path path;
     private BlockPos nextRoom = BlockPos.ORIGIN;
 
     public MyrmexAIStoreBabies(EntityMyrmexWorker entityIn, double movementSpeedIn) {

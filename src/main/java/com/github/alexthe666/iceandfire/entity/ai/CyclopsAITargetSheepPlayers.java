@@ -5,43 +5,42 @@ import com.google.common.base.Function;
 import com.google.common.base.Predicate;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityCreature;
-import net.minecraft.entity.EntityLivingBase;
+//import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.ai.EntityAITarget;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.entity.player.EntityPlayerMP;
+//import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EntitySelectors;
 import net.minecraft.util.math.AxisAlignedBB;
 
 import javax.annotation.Nullable;
-import java.util.Collections;
+//import java.util.Collections;
 import java.util.Comparator;
-import java.util.List;
+//import java.util.List;
 
-public class CyclopsAITargetSheepPlayers<T extends EntityLivingBase> extends EntityAITarget {
-    protected final Class<T> targetClass;
+public class CyclopsAITargetSheepPlayers extends EntityAITarget {
+//    protected final Class<EntityPlayer> targetClass;
     protected final CyclopsAITargetSheepPlayers.Sorter sorter;
-    protected final Predicate<? super T> targetEntitySelector;
+    protected final Predicate<EntityPlayer> targetEntitySelector;
     private final int targetChance;
-    protected T targetEntity;
+    protected EntityPlayer targetEntity;
 
-    public CyclopsAITargetSheepPlayers(EntityCreature creature, Class<T> classTarget, boolean checkSight) {
-        this(creature, classTarget, checkSight, true);
+    public CyclopsAITargetSheepPlayers(EntityCreature creature, boolean checkSight) {
+        this(creature, checkSight, true);
     }
 
-    public CyclopsAITargetSheepPlayers(EntityCreature creature, Class<T> classTarget, boolean checkSight, boolean onlyNearby) {
-        this(creature, classTarget, 10, checkSight, onlyNearby, null);
+    public CyclopsAITargetSheepPlayers(EntityCreature creature, boolean checkSight, boolean onlyNearby) {
+        this(creature, 10, checkSight, onlyNearby, null);
     }
 
-    public CyclopsAITargetSheepPlayers(EntityCreature creature, Class<T> classTarget, int chance, boolean checkSight, boolean onlyNearby, @Nullable final Predicate<? super T> targetSelector) {
+    public CyclopsAITargetSheepPlayers(EntityCreature creature, int chance, boolean checkSight, boolean onlyNearby, @Nullable final Predicate<EntityPlayer> targetSelector) {
         super(creature, checkSight, onlyNearby);
-        this.targetClass = classTarget;
         this.targetChance = chance;
         this.sorter = new CyclopsAITargetSheepPlayers.Sorter(creature);
         this.setMutexBits(1);
-        this.targetEntitySelector = new Predicate<T>() {
-            public boolean apply(@Nullable T p_apply_1_) {
+        this.targetEntitySelector = new Predicate<EntityPlayer>() {
+            public boolean apply(@Nullable EntityPlayer p_apply_1_) {
                 if (p_apply_1_ == null) {
                     return false;
                 } else if (targetSelector != null && !targetSelector.apply(p_apply_1_)) {
@@ -59,7 +58,8 @@ public class CyclopsAITargetSheepPlayers<T extends EntityLivingBase> extends Ent
     public boolean shouldExecute() {
         if (this.targetChance > 0 && this.taskOwner.getRNG().nextInt(this.targetChance) != 0) {
             return false;
-        } else if (this.targetClass != EntityPlayer.class && this.targetClass != EntityPlayerMP.class) {
+        }
+/*        else if (this.targetClass != EntityPlayer.class && this.targetClass != EntityPlayerMP.class) {
             List<T> list = this.taskOwner.world.getEntitiesWithinAABB(this.targetClass, this.getTargetableArea(this.getTargetDistance()), this.targetEntitySelector);
 
             if (list.isEmpty()) {
@@ -69,8 +69,9 @@ public class CyclopsAITargetSheepPlayers<T extends EntityLivingBase> extends Ent
                 this.targetEntity = list.get(0);
                 return true;
             }
-        } else {
-            this.targetEntity = (T) this.taskOwner.world.getNearestAttackablePlayer(this.taskOwner.posX, this.taskOwner.posY + (double) this.taskOwner.getEyeHeight(), this.taskOwner.posZ, this.getTargetDistance(), this.getTargetDistance(), new Function<EntityPlayer, Double>() {
+        }*/
+        else {
+            this.targetEntity = this.taskOwner.world.getNearestAttackablePlayer(this.taskOwner.posX, this.taskOwner.posY + (double) this.taskOwner.getEyeHeight(), this.taskOwner.posZ, this.getTargetDistance(), this.getTargetDistance(), new Function<EntityPlayer, Double>() {
                 @Nullable
                 public Double apply(@Nullable EntityPlayer player) {
                     ItemStack helmet = player.getItemStackFromSlot(EntityEquipmentSlot.HEAD);

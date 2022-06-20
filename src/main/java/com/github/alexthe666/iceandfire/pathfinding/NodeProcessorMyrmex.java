@@ -164,7 +164,6 @@ public class NodeProcessorMyrmex extends NodeProcessor {
         } else {
             PathNodeType pathnodetype = this.getPathNodeType(this.entity, x, y, z);
             float f = this.entity.getPathPriority(pathnodetype);
-            //TODO
             double d1 = 1.0D; //(double) this.entity.width / 2.0D;
 
             if (f >= 0.0F) {
@@ -361,7 +360,7 @@ public class NodeProcessorMyrmex extends NodeProcessor {
         Block block = iblockstate.getBlock();
         Material material = iblockstate.getMaterial();
 
-        PathNodeType type = block.getAiPathNodeType(iblockstate, p_189553_1_, blockpos);
+        PathNodeType type = block.getAiPathNodeType(iblockstate, p_189553_1_, blockpos,this.entity);
         if (type != null) return type;
 
         if (material == Material.AIR) {

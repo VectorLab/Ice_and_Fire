@@ -512,7 +512,7 @@ public class EntityHippocampus extends EntityTameable implements ISyncMount, IAn
             return;
         }
         if (this.isServerWorld()) {
-            float f5;
+//            float f5;
             if (this.isInWater()) {
                 this.moveRelative(strafe, vertical, forward, 0.1F);
                 f4 = 0.6F;

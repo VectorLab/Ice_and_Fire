@@ -115,7 +115,6 @@ public class TileEntityDragonforgeInput extends TileEntity implements ITickable 
         return getConnectedTileEntity() != null && getConnectedTileEntity().hasCapability(capability, facing);
     }
 
-    @SuppressWarnings("unchecked")
     @Override
     @javax.annotation.Nullable
     public <T> T getCapability(net.minecraftforge.common.capabilities.Capability<T> capability, @javax.annotation.Nullable net.minecraft.util.EnumFacing facing) {

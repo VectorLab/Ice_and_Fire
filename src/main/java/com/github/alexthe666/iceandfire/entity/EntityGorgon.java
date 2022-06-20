@@ -101,13 +101,13 @@ public class EntityGorgon extends EntityMob implements IAnimatedEntity, IVillage
         });
         this.tasks.addTask(6, new EntityAILookIdle(this));
         this.targetTasks.addTask(1, new EntityAIHurtByTarget(this, false));
-        this.targetTasks.addTask(2, new EntityAINearestAttackableTarget(this, EntityPlayer.class, 0, true, false, new Predicate<EntityPlayer>() {
+        this.targetTasks.addTask(2, new EntityAINearestAttackableTarget<>(this, EntityPlayer.class, 0, true, false, new Predicate<EntityPlayer>() {
             @Override
             public boolean apply(@Nullable EntityPlayer entity) {
                 return true;
             }
         }));
-        this.targetTasks.addTask(3, new EntityAINearestAttackableTarget(this, EntityLiving.class, 0, true, false, new Predicate<Entity>() {
+        this.targetTasks.addTask(3, new EntityAINearestAttackableTarget<>(this, EntityLiving.class, 0, true, false, new Predicate<Entity>() {
             @Override
             public boolean apply(@Nullable Entity entity) {
                 StoneEntityProperties properties = EntityPropertiesHandler.INSTANCE.getProperties(entity, StoneEntityProperties.class);
@@ -232,7 +232,7 @@ public class EntityGorgon extends EntityMob implements IAnimatedEntity, IVillage
                             if (this.getAttackTarget() instanceof EntityLiving && !(this.getAttackTarget() instanceof IBlacklistedFromStatues) || this.getAttackTarget() instanceof IBlacklistedFromStatues && ((IBlacklistedFromStatues) this.getAttackTarget()).canBeTurnedToStone()) {
                                 StoneEntityProperties properties = EntityPropertiesHandler.INSTANCE.getProperties(this.getAttackTarget(), StoneEntityProperties.class);
                                 EntityLiving attackTarget = (EntityLiving) this.getAttackTarget();
-                                if (properties != null || !properties.isStone) {
+                                if (properties != null && !properties.isStone) {// && -> ||
                                     properties.isStone = true;
                                     if (world.isRemote) {
                                         IceAndFire.NETWORK_WRAPPER.sendToServer(new MessageStoneStatue(attackTarget.getEntityId(), true));
@@ -261,7 +261,7 @@ public class EntityGorgon extends EntityMob implements IAnimatedEntity, IVillage
             }
         }
         AnimationHandler.INSTANCE.updateAnimations(this);
-        EntityPlayer player = world.getClosestPlayerToEntity(this, 25);
+//        EntityPlayer player = world.getClosestPlayerToEntity(this, 25);
         //if (player != null) {
         //	player.addStat(ModAchievements.findGorgon);
         //}

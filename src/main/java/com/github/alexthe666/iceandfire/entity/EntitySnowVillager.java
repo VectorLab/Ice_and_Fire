@@ -29,7 +29,7 @@ import java.lang.reflect.Modifier;
 
 public class EntitySnowVillager extends EntityVillager {
 
-    private String professionName;
+//    private String professionName;
     private net.minecraftforge.fml.common.registry.VillagerRegistry.VillagerProfession prof;
 
     public EntitySnowVillager(World worldIn) {

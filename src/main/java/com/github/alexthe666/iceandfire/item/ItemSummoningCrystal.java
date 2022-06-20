@@ -1,8 +1,14 @@
 package com.github.alexthe666.iceandfire.item;
 
+import java.util.List;
+import java.util.UUID;
+
+import javax.annotation.Nullable;
+
 import com.github.alexthe666.iceandfire.IceAndFire;
 import com.github.alexthe666.iceandfire.entity.EntityDragonBase;
 import com.github.alexthe666.iceandfire.world.DragonPosWorldData;
+
 import net.minecraft.client.resources.I18n;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.Entity;
@@ -20,16 +26,10 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.ChunkPos;
 import net.minecraft.util.text.TextComponentTranslation;
-import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
-import net.minecraft.world.WorldServer;
 import net.minecraftforge.common.ForgeChunkManager;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-
-import javax.annotation.Nullable;
-import java.util.List;
-import java.util.UUID;
 
 public class ItemSummoningCrystal extends Item {
 
@@ -97,11 +97,11 @@ public class ItemSummoningCrystal extends Item {
         float yaw = player.rotationYaw;
         boolean displayError = false;
         if (stack.getItem() == this && hasDragon(stack)) {
-            int dragonCount = 0;
+//            int dragonCount = 0;
             if (stack.getTagCompound() != null) {
                 for (String tagInfo : stack.getTagCompound().getKeySet()) {
                     if (tagInfo.contains("Dragon")) {
-                        dragonCount++;
+//                        dragonCount++;
                         NBTTagCompound dragonTag = stack.getTagCompound().getCompoundTag(tagInfo);
                         UUID id = dragonTag.getUniqueId("DragonUUID");
                         if(id != null){

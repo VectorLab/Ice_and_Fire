@@ -14,10 +14,10 @@ import java.util.*;
 public class StymphalianBirdFlock {
     private EntityStymphalianBird leader;
     private ArrayList<EntityStymphalianBird> members = new ArrayList<>();
-    private BlockPos leaderTarget;
-    private BlockPos prevLeaderTarget;
+//    private BlockPos leaderTarget;
+//    private BlockPos prevLeaderTarget;
     private Random random;
-    private int distance = 15;
+//    private int distance = 15;
 
     private StymphalianBirdFlock() {
     }
@@ -27,7 +27,7 @@ public class StymphalianBirdFlock {
         flock.leader = bird;
         flock.members = new ArrayList<>();
         flock.members.add(bird);
-        flock.leaderTarget = bird.airTarget;
+//        flock.leaderTarget = bird.airTarget;
         flock.random = bird.getRNG();
         return flock;
     }
@@ -65,10 +65,10 @@ public class StymphalianBirdFlock {
         if (!this.members.isEmpty() && (this.leader == null || this.leader.isDead)) {
             this.leader = members.get(random.nextInt(members.size()));
         }
-        if (leader != null && !leader.isDead) {
-            this.prevLeaderTarget = this.leaderTarget;
-            this.leaderTarget = leader.airTarget;
-        }
+//        if (leader != null && !leader.isDead) {
+//            this.prevLeaderTarget = this.leaderTarget;
+//            this.leaderTarget = leader.airTarget;
+//        }
     }
 
     public void onLeaderAttack(EntityLivingBase attackTarget) {
@@ -85,7 +85,7 @@ public class StymphalianBirdFlock {
 
 
     public void setTarget(BlockPos target) {
-        this.leaderTarget = target;
+//        this.leaderTarget = target;
         for (EntityStymphalianBird bird : members) {
             if (!isLeader(bird)) {
                 bird.airTarget = StymphalianBirdAIAirTarget.getNearbyAirTarget(bird);

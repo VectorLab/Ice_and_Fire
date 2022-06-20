@@ -11,8 +11,8 @@ import javax.annotation.Nullable;
 public class CockatriceAIAggroLook extends EntityAINearestAttackableTarget<EntityPlayer> {
     private final EntityCockatrice cockatrice;
     private EntityPlayer player;
-    private int aggroTime;
-    private int teleportTime;
+//    private int aggroTime;
+//    private int teleportTime;
 
     public CockatriceAIAggroLook(EntityCockatrice p_i45842_1_) {
         super(p_i45842_1_, EntityPlayer.class, false);
@@ -39,8 +39,8 @@ public class CockatriceAIAggroLook extends EntityAINearestAttackableTarget<Entit
      * Execute a one shot task or start executing a continuous task
      */
     public void startExecuting() {
-        this.aggroTime = 5;
-        this.teleportTime = 0;
+//        this.aggroTime = 5;
+//        this.teleportTime = 0;
     }
 
     /**

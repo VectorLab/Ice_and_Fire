@@ -64,7 +64,7 @@ import java.util.*;
 public class ServerEvents {
 
     public static final UUID ALEX_UUID = UUID.fromString("71363abe-fd03-49c9-940d-aae8b8209b7c");
-    private static final Predicate VILLAGER_FEAR = new Predicate<EntityLivingBase>() {
+    private static final Predicate<EntityLivingBase> VILLAGER_FEAR = new Predicate<EntityLivingBase>() {
         public boolean apply(@Nullable EntityLivingBase entity) {
             return entity != null && entity instanceof IVillagerFear;
         }
@@ -610,7 +610,7 @@ public class ServerEvents {
                         entity.motionX += (Math.signum(closestSiren.posX - entity.posX) * 0.5D - entity.motionX) * 0.100000000372529;
                         entity.motionY += (Math.signum(closestSiren.posY - entity.posY + 1) * 0.5D - entity.motionY) * 0.100000000372529;
                         entity.motionZ += (Math.signum(closestSiren.posZ - entity.posZ) * 0.5D - entity.motionZ) * 0.100000000372529;
-                        float angle = (float) (Math.atan2(entity.motionZ, entity.motionX) * 180.0D / Math.PI) - 90.0F;
+//                        float angle = (float) (Math.atan2(entity.motionZ, entity.motionX) * 180.0D / Math.PI) - 90.0F;
                         double d0 = closestSiren.posX - entity.posX;
                         double d2 = closestSiren.posZ - entity.posZ;
                         double d1 = closestSiren.posY - 1 - entity.posY;
@@ -684,7 +684,7 @@ public class ServerEvents {
             Iterator<Entity> itr = properties.entitiesWeAreGlaringAt.iterator();
             while (itr.hasNext()) {
                 Entity next = itr.next();
-                double d5 = 80F;
+//                double d5 = 80F;
                 double d0 = next.posX - event.getEntityLiving().posX;
                 double d1 = next.posY + (double) (next.height * 0.5F) - (event.getEntityLiving().posY + (double) event.getEntityLiving().getEyeHeight() * 0.5D);
                 double d2 = next.posZ - event.getEntityLiving().posZ;

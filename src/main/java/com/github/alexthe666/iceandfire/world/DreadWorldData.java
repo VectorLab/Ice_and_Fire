@@ -1,8 +1,11 @@
 package com.github.alexthe666.iceandfire.world;
 
+import java.util.Iterator;
+import java.util.List;
+
 import com.github.alexthe666.iceandfire.IceAndFire;
-import com.github.alexthe666.iceandfire.entity.MyrmexHive;
 import com.google.common.collect.Lists;
+
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
 import net.minecraft.util.math.BlockPos;
@@ -10,16 +13,12 @@ import net.minecraft.world.World;
 import net.minecraft.world.storage.MapStorage;
 import net.minecraft.world.storage.WorldSavedData;
 
-import java.util.Iterator;
-import java.util.List;
-import java.util.UUID;
-
 public class DreadWorldData extends WorldSavedData {
 
     private static final String IDENTIFIER = "iceandfire_dread";
     private final List<BlockPos> allOverworldPortalLocations = Lists.newArrayList();
     private final List<BlockPos> activeOverworldPortalLocations = Lists.newArrayList();
-    private World world;
+//    private World world;
     private int tickCounter;
 
     public DreadWorldData(String name) {
@@ -28,7 +27,7 @@ public class DreadWorldData extends WorldSavedData {
 
     public DreadWorldData(World world) {
         super(IDENTIFIER);
-        this.world = world;
+//        this.world = world;
         this.markDirty();
     }
 
@@ -43,12 +42,11 @@ public class DreadWorldData extends WorldSavedData {
         instance.markDirty();
         return instance;
     }
-
-
+/*
     public void setWorldsForAll(World worldIn) {
-        this.world = worldIn;
+//        this.world = worldIn;
     }
-
+*/
     public void tick() {
         ++this.tickCounter;
         //this.removeAnnihilatedHives();

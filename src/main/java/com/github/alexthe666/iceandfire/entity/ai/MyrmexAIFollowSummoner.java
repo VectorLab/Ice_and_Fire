@@ -14,7 +14,7 @@ import net.minecraft.world.World;
 
 public class MyrmexAIFollowSummoner extends EntityAIBase {
     private final EntityMyrmexSwarmer tameable;
-    private final double followSpeed;
+//    private final double followSpeed;
     World world;
     float maxDist;
     float minDist;
@@ -25,7 +25,7 @@ public class MyrmexAIFollowSummoner extends EntityAIBase {
     public MyrmexAIFollowSummoner(EntityMyrmexSwarmer tameableIn, double followSpeedIn, float minDistIn, float maxDistIn) {
         this.tameable = tameableIn;
         this.world = tameableIn.world;
-        this.followSpeed = followSpeedIn;
+//        this.followSpeed = followSpeedIn;
         this.minDist = minDistIn;
         this.maxDist = maxDistIn;
         this.setMutexBits(3);

@@ -64,8 +64,8 @@ public class IceExplosion extends Explosion {
     @Override
     public void doExplosionA() {
         Set<BlockPos> set = Sets.newHashSet();
-        int i = 16;
-
+//        int i = 16;
+        if (DimensionGriefing.canGrief(this.worldObj,false)) {
         for (int j = 0; j < 16; ++j) {
             for (int k = 0; k < 16; ++k) {
                 for (int l = 0; l < 16; ++l) {
@@ -81,8 +81,8 @@ public class IceExplosion extends Explosion {
                         double d4 = this.explosionX;
                         double d6 = this.explosionY;
                         double d8 = this.explosionZ;
-
-                        for (float f1 = 0.3F; f > 0.0F; f -= 0.22500001F) {
+//float f1 = 0.3F
+                        for (; f > 0.0F; f -= 0.22500001F) {
                             BlockPos blockpos = new BlockPos(d4, d6, d8);
                             IBlockState iblockstate = this.worldObj.getBlockState(blockpos);
 
@@ -103,8 +103,7 @@ public class IceExplosion extends Explosion {
                 }
             }
         }
-
-        if (DimensionGriefing.canGrief(this.worldObj,false)) {
+        
             this.affectedBlockPositions.addAll(set);
         }
         float f3 = this.explosionSize * 2.0F;
@@ -259,11 +258,11 @@ public class IceExplosion extends Explosion {
     public EntityLivingBase getExplosivePlacedBy() {
         return this.exploder == null ? null : (this.exploder instanceof EntityTNTPrimed ? ((EntityTNTPrimed) this.exploder).getTntPlacedBy() : (this.exploder instanceof EntityLivingBase ? (EntityLivingBase) this.exploder : null));
     }
-
+/*
     public void func_180342_d() {
         this.affectedBlockPositions.clear();
     }
-
+*/
     @Override
     public List<BlockPos> getAffectedBlockPositions() {
         return this.affectedBlockPositions;

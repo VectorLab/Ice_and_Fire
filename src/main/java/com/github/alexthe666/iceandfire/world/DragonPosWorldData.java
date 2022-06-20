@@ -15,7 +15,7 @@ public class DragonPosWorldData extends WorldSavedData {
 
     private static final String IDENTIFIER = "iceandfire_dragonPositions";
     protected final Map<UUID, BlockPos> lastDragonPositions = new HashMap<>();
-    private World world;
+//    private World world;
     private int tickCounter;
 
     public DragonPosWorldData(String name) {
@@ -24,7 +24,7 @@ public class DragonPosWorldData extends WorldSavedData {
 
     public DragonPosWorldData(World world) {
         super(IDENTIFIER);
-        this.world = world;
+//        this.world = world;
         this.markDirty();
     }
 

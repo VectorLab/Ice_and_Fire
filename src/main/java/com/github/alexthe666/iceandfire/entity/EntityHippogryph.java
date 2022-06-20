@@ -112,7 +112,7 @@ public class EntityHippogryph extends EntityTameable implements ISyncMount, IAni
     protected void switchNavigator(){
         if(this.isBeingRidden() && this.isOverAir()){
             if(navigatorType != 1){
-                this.moveHelper = new IafDragonFlightManager.PlayerFlightMoveHelper(this);
+                this.moveHelper = new IafDragonFlightManager.PlayerFlightMoveHelper<>(this);
                 this.navigator = new PathNavigateFlyingCreature(this, world);
                 navigatorType = 1;
             }
@@ -140,7 +140,7 @@ public class EntityHippogryph extends EntityTameable implements ISyncMount, IAni
 
     @Override
     protected void initEntityAI() {
-        this.tasks.addTask(0, new DragonAIRide(this));
+        this.tasks.addTask(0, new DragonAIRide<>(this));
         this.tasks.addTask(1, new EntityAISwimming(this));
         this.tasks.addTask(2, this.aiSit = new EntityAISit(this));
         this.tasks.addTask(3, new HippogryphAIAttackMelee(this, 1.5D, true));
@@ -154,8 +154,8 @@ public class EntityHippogryph extends EntityTameable implements ISyncMount, IAni
         this.targetTasks.addTask(1, new EntityAIOwnerHurtByTarget(this));
         this.targetTasks.addTask(2, new EntityAIOwnerHurtTarget(this));
         this.targetTasks.addTask(3, new EntityAIHurtByTarget(this, false));
-        this.targetTasks.addTask(4, new HippogryphAITargetItems(this, false));
-        this.targetTasks.addTask(5, new HippogryphAITarget(this, EntityLivingBase.class, false, new Predicate<Entity>() {
+        this.targetTasks.addTask(4, new HippogryphAITargetItems<>(this, false));
+        this.targetTasks.addTask(5, new HippogryphAITarget<>(this, EntityLivingBase.class, false, new Predicate<Entity>() {
             @Override
             public boolean apply(@Nullable Entity entity) {
                 return entity instanceof EntityLivingBase && !(entity instanceof AbstractHorse) && DragonUtils.isAlive((EntityLivingBase) entity);
