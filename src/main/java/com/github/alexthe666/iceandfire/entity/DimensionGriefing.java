@@ -10,8 +10,8 @@ public class DimensionGriefing {
 	public static HashMap<Integer,Integer> griefing_dim=new HashMap<>();
 	public static int griefing_default=0;
 
-	private static void logError(String p1) {
-		IceAndFire.logger.error("config <dragon Griefing List> values '"+p1+"' invalid, skipping");
+	private static void logError(String p1,String p2) {
+		IceAndFire.logger.error("config <dragon Griefing List> values '"+p1+"' "+p2+", skipping");
 	}
 
 	public static void init(int dragonGriefing, String[] dragonGriefingList) {
@@ -19,7 +19,7 @@ public class DimensionGriefing {
 		for(String v1:dragonGriefingList) {
 			String[] v2=v1.split(":");
 			if(2!=v2.length) {
-				logError(v1);
+				logError(v1,"invalid split");
 				continue;
 			}
 			int v3,v4;
@@ -28,7 +28,11 @@ public class DimensionGriefing {
 				v4=Integer.parseInt(v2[1]);
 			}catch(NumberFormatException e) {
 				IceAndFire.logger.catching(e);
-				logError(v1);
+				logError(v1,"invalid number format");
+				continue;
+			}
+			if(v4<0||v4>2) {
+				logError(v1,"invalid grief level");
 				continue;
 			}
 			if(v4==dragonGriefing) {
@@ -38,7 +42,7 @@ public class DimensionGriefing {
 		}
 		
 	}
-	
+
 	public static int get(World wi) {
 		Integer v1=griefing_dim.get(wi.provider.getDimension());
 		return null==v1?griefing_default:v1;

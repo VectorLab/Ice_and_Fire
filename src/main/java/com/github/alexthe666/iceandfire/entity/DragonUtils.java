@@ -1,5 +1,6 @@
 package com.github.alexthe666.iceandfire.entity;
 
+import java.util.HashMap;
 import java.util.List;
 
 import javax.annotation.Nullable;
@@ -294,7 +295,7 @@ public class DragonUtils {
                 block != Blocks.CHAIN_COMMAND_BLOCK &&
                 block != Blocks.IRON_BARS &&
                 block != Blocks.END_GATEWAY &&
-                !isBlacklistedBlock(block);
+                !isBlacklistedBlock.run(block);
     }
 
     public static boolean hasSameOwner(EntityTameable cockatrice, Entity entity) {
@@ -309,7 +310,33 @@ public class DragonUtils {
         return (!(entity instanceof IDeadMob) || !((IDeadMob) entity).isMobDead()) && !EntityGorgon.isStoneMob(entity);
     }
 
-    public static boolean isBlacklistedBlock(Block block) {
+    public static class isBlacklistedBlock{
+    	public static HashMap<Block,String> g1=new HashMap<>();
+    	public static boolean reserve;
+    	
+    	public static void load(String[] p1,boolean p2) {
+    		reserve=!p2;
+    		g1.clear();
+    		for(String v1:p1) {
+    			Block v2=Block.getBlockFromName(v1);
+    			if(null==v2) {
+    				IceAndFire.logger.error("Invalid value for <Blacklisted Blocks from Dragon>, ignoring: "+v1);
+    				continue;
+    			}
+    			if(g1.containsKey(v2)) {
+    				IceAndFire.logger.error("Duplicate value for <Blacklisted Blocks from Dragon>, ignoring: "+v1);
+    				continue;
+    			}
+    			g1.put(v2,v1);
+    		}
+    	}
+    	
+    	public static boolean run(Block p1) {
+    		return reserve==g1.containsKey(p1);
+    	}
+    	
+        public static boolean run(IBlockState state) {
+        	/*
         if (IceAndFire.CONFIG.blacklistBreakBlocksIsWhiteList) {
             for (String name : IceAndFire.CONFIG.blacklistedBreakBlocks) {
                 if (name.equalsIgnoreCase(block.getRegistryName().toString())) {
@@ -324,6 +351,8 @@ public class DragonUtils {
                 }
             }
             return false;
+        }*/
+        	return reserve==g1.containsKey(state.getBlock());
         }
     }
 
@@ -363,13 +392,39 @@ public class DragonUtils {
         return def;
     }
 
-    public static boolean canDropFromDragonBlockBreak(IBlockState state) {
-        for (String name : IceAndFire.CONFIG.noDropBreakBlocks) {
-            if (name.equalsIgnoreCase(state.getBlock().getRegistryName().toString())) {
-                return false;
+    public static class canDropFromDragonBlockBreak{
+    	public static HashMap<Block,String> g1=new HashMap<>();
+    	
+    	public static void load(String[] p1) {
+    		g1.clear();
+    		for(String v1:p1) {
+    			Block v2=Block.getBlockFromName(v1);
+    			if(null==v2) {
+    				IceAndFire.logger.error("Invalid value for <No-Drop Blocks from Dragon Block Breaking>, ignoring: "+v1);
+    				continue;
+    			}
+    			if(g1.containsKey(v2)) {
+    				IceAndFire.logger.error("Duplicate value for <No-Drop Blocks from Dragon Block Breaking>, ignoring: "+v1);
+    				continue;
+    			}
+    			g1.put(v2,v1);
+    		}
+    	}
+    	
+    	public static boolean run(Block p1) {
+    		return g1.containsKey(p1);
+    	}
+    	
+        public static boolean run(IBlockState state) {
+        	/*
+            for (String name : IceAndFire.CONFIG.noDropBreakBlocks) {
+                if (name.equalsIgnoreCase(state.getBlock().getRegistryName().toString())) {
+                    return false;
+                }
             }
+            return true;*/
+        	return g1.containsKey(state.getBlock());
         }
-        return true;
     }
 
     public static boolean isDreadBlock(IBlockState state){
