@@ -28,7 +28,6 @@ import net.minecraft.entity.passive.EntitySheep;
 import net.minecraft.entity.passive.EntityTameable;
 import net.minecraft.entity.passive.EntityVillager;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.init.Blocks;
 import net.minecraft.util.EntitySelectors;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
@@ -284,6 +283,8 @@ public class DragonUtils {
     }
 
     public static boolean canDragonBreak(Block block) {
+    	return notBlacklistedBlock.reverse==notBlacklistedBlock.g1.containsKey(block);
+    	/*
         return block != Blocks.BARRIER &&
                 block != Blocks.OBSIDIAN &&
                 block != Blocks.END_STONE &&
@@ -296,6 +297,7 @@ public class DragonUtils {
                 block != Blocks.IRON_BARS &&
                 block != Blocks.END_GATEWAY &&
                 !isBlacklistedBlock.run(block);
+                */
     }
 
     public static boolean hasSameOwner(EntityTameable cockatrice, Entity entity) {
@@ -310,12 +312,12 @@ public class DragonUtils {
         return (!(entity instanceof IDeadMob) || !((IDeadMob) entity).isMobDead()) && !EntityGorgon.isStoneMob(entity);
     }
 
-    public static class isBlacklistedBlock{
+    public static class notBlacklistedBlock{
     	public static HashMap<Block,String> g1=new HashMap<>();
-    	public static boolean reserve;
+    	public static boolean reverse;
     	
     	public static void load(String[] p1,boolean p2) {
-    		reserve=!p2;
+    		reverse=p2;
     		g1.clear();
     		for(String v1:p1) {
     			Block v2=Block.getBlockFromName(v1);
@@ -332,7 +334,7 @@ public class DragonUtils {
     	}
     	
     	public static boolean run(Block p1) {
-    		return reserve==g1.containsKey(p1);
+    		return reverse==g1.containsKey(p1);
     	}
     	
         public static boolean run(IBlockState state) {
@@ -352,7 +354,7 @@ public class DragonUtils {
             }
             return false;
         }*/
-        	return reserve==g1.containsKey(state.getBlock());
+        	return reverse==g1.containsKey(state.getBlock());
         }
     }
 

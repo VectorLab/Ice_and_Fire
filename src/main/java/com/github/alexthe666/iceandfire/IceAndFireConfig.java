@@ -321,7 +321,7 @@ public class IceAndFireConfig {
         
         {
         	int dragonGriefing = config.getInt("Dragon Griefing", "all", 0, 0, 2, "Dragon griefing - 2 is no griefing, 1 is breaking weak blocks, 0 is default");
-        	String[] dragonGriefingList = config.getStringList("Dragon Griefing List", "all", new String[]{"0:2", "1:2", "-1:2"}, "Blocks that will not drop as items when broken by a dragon. Ex. 0:0 or -1:2");
+        	String[] dragonGriefingList = config.getStringList("Dragon Griefing List", "all", new String[]{"0:0", "1:0", "-1:0"}, "Blocks that will not drop as items when broken by a dragon. Ex. 0:0 or -1:2");
         	DimensionGriefing.init(dragonGriefing,dragonGriefingList);
         }
         
@@ -332,8 +332,20 @@ public class IceAndFireConfig {
         
         {
         	boolean blacklistBreakBlocksIsWhiteList = config.getBoolean("Blacklisted Blocks from Dragon is a Whitelist", "all", false, "If true, then the blacklist will act as a whitelist.");
-        	String[] blacklistedBreakBlocks = config.getStringList("Blacklisted Blocks from Dragon", "all", new String[0], "Blacklist for blocks that dragons are not to break or burn. Ex. \"minecraft:sponge\" or \"rats:rat_crafting_table\"");
-        	DragonUtils.isBlacklistedBlock.load(blacklistedBreakBlocks, blacklistBreakBlocksIsWhiteList);
+        	String[] blacklistedBreakBlocks = config.getStringList("Blacklisted Blocks from Dragon", "all", new String[] {
+        			"minecraft:barrier",
+        			"minecraft:obsidian",
+        			"minecraft:end_stone",
+        			"minecraft:bedrock",
+        			"minecraft:end_portal",
+        			"minecraft:end_portal_frame",
+        			"minecraft:command_block",
+        			"minecraft:repeating_command_block",
+        			"minecraft:chain_command_block",
+        			"minecraft:iron_bars",
+        			"minecraft:end_gateway"
+        			}, "Blacklist for blocks that dragons are not to break or burn. Ex. \"minecraft:sponge\" or \"rats:rat_crafting_table\"");
+        	DragonUtils.notBlacklistedBlock.load(blacklistedBreakBlocks, blacklistBreakBlocksIsWhiteList);
         }
     }
 }
