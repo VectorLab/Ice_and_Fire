@@ -1,7 +1,9 @@
 package com.github.alexthe666.iceandfire.entity;
 
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import javax.annotation.Nullable;
 
@@ -283,7 +285,7 @@ public class DragonUtils {
     }
 
     public static boolean canDragonBreak(Block block) {
-    	return notBlacklistedBlock.reverse==notBlacklistedBlock.g1.containsKey(block);
+    	return notBlacklistedBlock.reverse==notBlacklistedBlock.g1.contains(block);
     	/*
         return block != Blocks.BARRIER &&
                 block != Blocks.OBSIDIAN &&
@@ -313,7 +315,7 @@ public class DragonUtils {
     }
 
     public static class notBlacklistedBlock{
-    	public static HashMap<Block,String> g1=new HashMap<>();
+    	public static Set<Block> g1=new HashSet<>();
     	public static boolean reverse;
     	
     	public static void load(String[] p1,boolean p2) {
@@ -325,16 +327,16 @@ public class DragonUtils {
     				IceAndFire.logger.error("Invalid value for <Blacklisted Blocks from Dragon>, ignoring: "+v1);
     				continue;
     			}
-    			if(g1.containsKey(v2)) {
+    			if(g1.contains(v2)) {
     				IceAndFire.logger.error("Duplicate value for <Blacklisted Blocks from Dragon>, ignoring: "+v1);
     				continue;
     			}
-    			g1.put(v2,v1);
+    			g1.add(v2);
     		}
     	}
     	
     	public static boolean run(Block p1) {
-    		return reverse==g1.containsKey(p1);
+    		return reverse==g1.contains(p1);
     	}
     	
         public static boolean run(IBlockState state) {
@@ -354,7 +356,7 @@ public class DragonUtils {
             }
             return false;
         }*/
-        	return reverse==g1.containsKey(state.getBlock());
+        	return reverse==g1.contains(state.getBlock());
         }
     }
 

@@ -43,7 +43,8 @@ public class RenderModCapes {
 //    @SubscribeEvent
     private void playerRender(RenderPlayerEvent.Pre event) {
         if (event.getEntityPlayer() instanceof AbstractClientPlayer) {
-            NetworkPlayerInfo info = ((AbstractClientPlayer)event.getEntityPlayer()).getPlayerInfo();
+            AbstractClientPlayer mcmp = ((AbstractClientPlayer)event.getEntityPlayer());
+            NetworkPlayerInfo info = Minecraft.getMinecraft().getConnection().getPlayerInfo(mcmp.getUniqueID());
             if (info != null) {
                 Map<Type, ResourceLocation> textureMap = null;
                 try {
