@@ -1,10 +1,10 @@
 buildscript {
   repositories {
     mavenCentral()
-    maven {
+/*maven {
       name = "forge"
       url = "http://files.minecraftforge.net/maven"
-    }
+    }*/
     maven {
       name = "sonatype"
       url = "https://oss.sonatype.org/content/repositories/snapshots/"
@@ -13,11 +13,13 @@ buildscript {
       name = "CurseForge"
       url = "https://minecraft.curseforge.com/api/maven/"
     }
-  }
+        maven { url 'https://maven.minecraftforge.net' }
+        maven { url "https://plugins.gradle.org/m2/" }
+}
   dependencies {
     //classpath "net.minecraftforge.gradle:ForgeGradle:2.3-SNAPSHOT"
 classpath "net.minecraftforge.gradle:ForgeGradle:3.+"
-  }
+}
 }
 apply plugin: 'net.minecraftforge.gradle'
 //Only edit below this line, the above code adds and enables the nessasary things for Forge to be setup.
@@ -39,10 +41,11 @@ mappings channel: 'stable', version: '39-1.12'
 
 repositories {
     mavenCentral()
-  maven {
+/*
+maven {
     url = "https://maven.mcmoddev.com/"
   }
-/*  maven {
+  maven {
 //    name = "Mobius Repo"
 //    url = "http://tehnut.info/maven"
 //  }
@@ -109,7 +112,7 @@ minecraft 'net.minecraftforge:forge:1.12.2-14.23.5.2860'
     //deobfCompile "net.ilexiconn:llibrary-core:1.0.11-1.12.2"
     compile "slimeknights.mantle:Mantle:1.12-1.3.3.55"
     //deobfCompile "slimeknights:TConstruct:1.12.2-2.13.0.183"
-    compile "mcp.mobius.waila:Hwyla:1.8.26-B41_1.12.2"
+    //compile "mcp.mobius.waila:Hwyla:1.8.26-B41_1.12.2"
     compile "mezz.jei:jei_1.12.2:4.16.1.302"
     compile "mezz.jei:jei_1.12.2:4.16.1.302:api"
     compile "baubles:Baubles:1.12:1.5.2"
@@ -117,12 +120,16 @@ minecraft 'net.minecraftforge:forge:1.12.2-14.23.5.2860'
     compile "CraftTweaker2:CraftTweaker2-MC1120-Main:1.12-4.1.20.675"
     compile "mcjty.theoneprobe:TheOneProbe-1.12:1.12-1.4.28-17"
 
-// https://github.com/VectorLab/LLibrary
-compileOnly files( "libs/llibrary-1.7.21-1.12.2-dev.jar" )
+// https://github.com/iLexiconn/LLibrary/tree/1.12.2
+compileOnly files( "libs/llibrary-1.7.20-1.12.2-dev.jar" )
 // https://github.com/VectorLab/TinkersConstruct
 compileOnly files( "libs/TConstruct-1.12.2-2.13.1.0-deobf.jar" )
 // https://www.curseforge.com/minecraft/mc-mods/thaumcraft/files/2629023
 compileOnly files( "libs/Thaumcraft-1.12.2-6.1.BETA26.jar" )
+// https://github.com/TehNut-Mods/HWYLA/tree/1.12
+compileOnly files( "libs/Hwyla-1.8.26-B42_1.12.2-deobf.jar" )
+// https://github.com/Gegy/LLibraryCore
+compileOnly files( "libs/llibrary-core-1.0.11-1.12.2-deobf.jar" )
 }
 
 processResources
